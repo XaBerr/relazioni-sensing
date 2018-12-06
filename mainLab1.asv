@@ -1,0 +1,14 @@
+%####################_CLEANING_#######################
+clc
+close all
+clearvars
+
+%#######################_MAIN_#######################
+file = loadOBR("dataLab1/2.obr");
+polarizeP = []
+for i = file
+ polarizeP = [A,4];   
+end
+%subplot(2,1,1)
+%plot(t1,s1)
+%title('s_1')

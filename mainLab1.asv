@@ -3,12 +3,37 @@ clc
 close all
 clearvars
 
+%######################_CONST_#######################
+maxFileNumber = 3;
+windowSize = 100000;
+
 %#######################_MAIN_#######################
-file = loadOBR("dataLab1/2.obr");
-polarizeP = []
-for i = file
- polarizeP = [A,4];   
+% Importazione
+% dati(i).meters(1) sono tutti uguali
+dati = struct('meters',[],'polarizeP',[],'polarizeS',[],'info',{});
+for i = 1:maxFileNumber
+    [z, P, S, info] = loadOBR("dataLab1/"+i+".obr");
+    dati(i).meters = z;
+    dati(i).polarizeP = P;
+    dati(i).polarizeS = S;
+    dati(i).info = info;
 end
-%subplot(2,1,1)
-%plot(t1,s1)
-%title('s_1')
+
+% Cross correlazioni
+lagDiff = [maxFileNumber ];
+for i = 1:maxFileNumber
+    shift = crosscorrelation(dati(1).polarizeP, dati(i).polarizeP, windowSize);
+    lagDiff(i) = shift;
+end
+
+% Print vari
+hold on
+for i = 1:maxFileNumber
+    plot(1:size(lagDiff(i)), lagDiff(i));
+end
+hold off
+
+
+% subplot(2,1,2)
+% plot(meters,polarizeS)
+% title('S')

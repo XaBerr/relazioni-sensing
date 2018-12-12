@@ -5,14 +5,22 @@ clearvars
 
 %######################_CONST_#######################
 maxFileNumber = 2;
-signalStart = 6.7; 
-signalEnd = 12.3;
-windowSizeM = 0.1;
+signalStart = 6.77; 
+signalEnd = 12.1;
+windowSizeM = 0.01;
+lightSpeed = 3*10^8;
+refractiveIndex = 1.466;
+lambdaSmall = 1545.59 * 10^-9;
+lambdaBig = 1588.49 * 10^-9;
+lambda0 = (lambdaBig + lambdaSmall) / 2;
+deltaFrequency = lightSpeed * ( 1 / lambdaSmall - 1 / lambdaBig );
 
 %######################_DYNAMIC_######################
-windowSize;
-vectorStart;
-vectorEnd;
+windowSize = 0;
+vectorStart = 0;
+vectorEnd = 0;
+tick2M = 0;
+M2tick = 0;
 
 %#######################_MAIN_#######################
 % Calcolo della lunghezza della fibra
@@ -25,7 +33,9 @@ for i = 1:size(z, 2)
         vectorEnd = i;
     end
 end
-windowSize = ceil((vectorEnd-vectorStart)/(signalEnd-signalStart)*windowSizeM);
+M2tick = (vectorEnd - vectorStart) / (signalEnd - signalStart);
+tick2M = 1 / M2tick;
+windowSize = ceil(M2tick * windowSizeM);
 
 
 % Importazione
@@ -43,16 +53,17 @@ end
 % Cross correlazioni
 arrayShift = zeros(maxFileNumber, ceil(size(dati(1).polarizeP, 1) / windowSize));
 for i = 1:maxFileNumber
-    shift = crosscorrelation(dati(1).polarizeP, dati(i).polarizeP, windowSize);
+    shift = crosscorrelation(dati(1).polarizeS, dati(i).polarizeS, windowSize);
     for j = 1:size(shift, 2)
-        arrayShift(i, j) = shift(1, j);
+        deltaM = shift(1, j) * tick2M;
+        arrayShift(i, j) = deltaM / dati(1).meters(j);
     end
 end
 
 % Print vari
 %hold on
 xAxis = 1 : size(arrayShift, 2);
-plot(xAxis, arrayShift);
+plot(xAxis, arrayShift, 'b--o');
 % hold off
 
 % hold on;

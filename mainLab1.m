@@ -5,11 +5,14 @@ clearvars
 
 %######################_CONST_#######################
 maxFileNumber = 2;
-windowSize = 5000;
 signalStart = 6.7; 
 signalEnd = 12.3;
-vectorStart= 0;
-vectorEnd = 0;
+windowSizeM = 0.1;
+
+%######################_DYNAMIC_######################
+windowSize;
+vectorStart;
+vectorEnd;
 
 %#######################_MAIN_#######################
 % Calcolo della lunghezza della fibra
@@ -22,6 +25,8 @@ for i = 1:size(z, 2)
         vectorEnd = i;
     end
 end
+windowSize = ceil((vectorEnd-vectorStart)/(signalEnd-signalStart)*windowSizeM);
+
 
 % Importazione
 % dati(i).meters(1) sono tutti uguali
@@ -33,6 +38,7 @@ for i = 1:maxFileNumber
     dati(i).polarizeS = S(vectorStart:vectorEnd);
     dati(i).info = info;
 end
+
 
 % Cross correlazioni
 arrayShift = zeros(maxFileNumber, ceil(size(dati(1).polarizeP, 1) / windowSize));

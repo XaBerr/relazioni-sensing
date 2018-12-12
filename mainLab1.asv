@@ -5,9 +5,10 @@ clearvars
 
 %######################_CONST_#######################
 maxFileNumber = 2;
-windowSize = 4000;
-signalStart = 0; 
-signalEnd = 12;
+signalStart = 6.7; 
+signalEnd = 12.3;
+windowSizeCM = 10;
+windowSize = 0;
 vectorStart= 0;
 vectorEnd = 0;
 
@@ -22,31 +23,34 @@ for i = 1:size(z, 2)
         vectorEnd = i;
     end
 end
+windowSize = (vectorEnd-vectorStart)/();
+
 
 % Importazione
 % dati(i).meters(1) sono tutti uguali
 dati = struct('meters',[],'polarizeP',[],'polarizeS',[],'info',{});
 for i = 1:maxFileNumber
     [z, P, S, info] = loadOBR("dataLab1/"+i+".obr");
-    dati(i).meters = z();
-    dati(i).polarizeP = P;
-    dati(i).polarizeS = S;
+    dati(i).meters = z(vectorStart:vectorEnd);
+    dati(i).polarizeP = P(vectorStart:vectorEnd);
+    dati(i).polarizeS = S(vectorStart:vectorEnd);
     dati(i).info = info;
 end
 
+
 % Cross correlazioni
-% arrayShift = zeros(maxFileNumber, ceil(size(dati(1).polarizeP, 1) / windowSize));
-% for i = 1:maxFileNumber
-%     shift = crosscorrelation(dati(1).polarizeP, dati(i).polarizeP, windowSize);
-%     for j = 1:size(shift, 2)
-%         arrayShift(i, j) = shift(1, j);
-%     end
-% end
+arrayShift = zeros(maxFileNumber, ceil(size(dati(1).polarizeP, 1) / windowSize));
+for i = 1:maxFileNumber
+    shift = crosscorrelation(dati(1).polarizeP, dati(i).polarizeP, windowSize);
+    for j = 1:size(shift, 2)
+        arrayShift(i, j) = shift(1, j);
+    end
+end
 
 % Print vari
 %hold on
-% xAxis = 1 : size(arrayShift, 2);
-% plot(xAxis, arrayShift);
+xAxis = 1 : size(arrayShift, 2);
+plot(xAxis, arrayShift);
 % hold off
 
 % hold on;

@@ -1,0 +1,65 @@
+% LAYOUT
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{geometry}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi)
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text.
+\usepackage{fullpage} % changes the margin
+
+% BIBLATEX
+\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+
+% INCLUDE
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsfonts}
+\usepackage{imakeidx}
+\makeindex
+\usepackage{listings}
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0, 0.6, 0}
+\definecolor{gray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{mauve}{rgb}{0.58, 0, 0.82}
+\definecolor{blue}{rgb}{0, 0, 0.82}
+\lstset{
+  frame=tb,
+  language=C,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{darkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\usepackage[final]{pdfpages}
+\usepackage{float}
+
+% COMANDI
+\newcommand{\idx}[1]{\index{#1}\textbf{#1}}
+
+\newcommand{\lvli}[1]{\section{#1}}
+\newcommand{\lvlii}[1]{\subsection{#1}}
+\newcommand{\lvliii}[1]{\subsubsection{#1}}
+\newcommand{\lvliv}[1]{\paragraph{#1}\mbox{}\\}
+\newcommand{\lvlv}[1]{\subparagraph{#1}}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiter\braket{\langle}{\rangle}
+\DeclarePairedDelimiterX\ketbra[1]{\delimsize\vert}{\delimsize\vert}{#1 \rangle\langle #1}
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand*{\TitleFont}{%
+  \usefont{\encodingdefault}{\rmdefault}{b}{n}%
+  \fontsize{40}{40}%
+  \selectfont%
+}

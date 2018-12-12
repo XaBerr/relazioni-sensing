@@ -14,6 +14,8 @@ lambdaSmall = 1545.59 * 10^-9;
 lambdaBig = 1588.49 * 10^-9;
 lambda0 = (lambdaBig + lambdaSmall) / 2;
 deltaFrequency = lightSpeed * ( 1 / lambdaSmall - 1 / lambdaBig );
+centerOfFiberM = (signalEnd + signalStart  ) / 2;
+centerOfFrequency = lightSpeed * refractiveIndex /  lambda0;
 
 %######################_DYNAMIC_######################
 windowSize = 0;
@@ -56,7 +58,7 @@ for i = 1:maxFileNumber
     shift = crosscorrelation(dati(1).polarizeS, dati(i).polarizeS, windowSize);
     for j = 1:size(shift, 2)
         deltaM = shift(1, j) * tick2M;
-        arrayShift(i, j) = deltaM / dati(1).meters(j);
+        arrayShift(i, j) = deltaM / centerOfFiberM * centerOfFrequency;
     end
 end
 

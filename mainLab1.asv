@@ -5,13 +5,16 @@ clearvars
 
 %######################_CONST_#######################
 maxFileNumber = 2;
-signalStart = 6.7; 
-signalEnd = 12.3;
+signalStart = 6.77; 
+signalEnd = 12.1;
 windowSizeM = 0.01;
-ligthSpeed = 3*10^8;
+lightSpeed = 3*10^8;
 refractiveIndex = 1.466;
-lambda0 = 1566.75 * 10^-9;
-frequency = lightSpeed * refractiveIndex / lambda0;
+lambdaSmall = 1545.59 * 10^-9;
+lambdaBig = 1588.49 * 10^-9;
+lambda0 = (lambdaBig + lambdaSmall) / 2;
+deltaFrequency = lightSpeed * ( 1 / lambdaSmall - 1 / lambdaBig );
+centerOfFiber
 
 %######################_DYNAMIC_######################
 windowSize = 0;
@@ -54,7 +57,7 @@ for i = 1:maxFileNumber
     shift = crosscorrelation(dati(1).polarizeS, dati(i).polarizeS, windowSize);
     for j = 1:size(shift, 2)
         deltaM = shift(1, j) * tick2M;
-        arrayShift(i, j) = deltaM / windowSizeM * j;
+        arrayShift(i, j) = deltaM / 9.4 * ;
     end
 end
 

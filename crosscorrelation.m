@@ -1,18 +1,12 @@
 function [lagDiff] = crosscorrelation(s2, s1, windowSize, windowStep)
-    lagDiff = [];
-    for i = 1:(ceil(size(s1/windowStep, 1))-1)
-        vCenter = round(windowStep * (i - 0.5));
-        vDelta = round(windowSize / 2);
-        vMin = vCenter - vDelta;
-        vMax =  vCenter + vDelta;
-        if vMin < 1
-            vMin = 1; 
-        end
-        if vMax > size(s1, 1)
-            vMax = size(s1, 1); 
-        end
+    lagDiff = [];    
+    vMin = 1;
+    vMax =  windowSize;
+    while vMax <= size(s1, 1)
         [acor, lag] = xcorr(abs(fft(s1(vMin:vMax))), abs(fft(s2(vMin:vMax))));
         [~,I] = max(abs(acor));
         lagDiff = [lagDiff lag(I)];
+        vMin = vMin + windowStep;
+        vMax = vMax + windowStep;
     end
 end

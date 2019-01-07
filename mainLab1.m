@@ -4,19 +4,13 @@ close all
 clearvars
 
 %######################_CONST_#######################
-maxFileNumber = 2;
-signalStart = 6.77; 
-signalEnd = 12.1;
-windowSizeM = 0.03;
-windowStepM = 0.01;
-lightSpeed = 3*10^8;
-refractiveIndex = 1.466;
-lambdaSmall = 1545.59 * 10^-9;
-lambdaBig = 1588.49 * 10^-9;
-lambda0 = (lambdaBig + lambdaSmall) / 2;
-deltaFrequency = lightSpeed * ( 1 / lambdaSmall - 1 / lambdaBig );
-centerOfFiberM = (signalEnd + signalStart  ) / 2;
-centerOfFrequency = lightSpeed * refractiveIndex /  lambda0;
+maxFileNumber = 10;
+signalStart   = 6.77; 
+signalEnd     = 12.1;
+windowSizeM   = 0.05;
+windowStepM   = 0.01;
+lightSpeed    = 3*10^8;
+k_strain      = 1.2;
 
 %######################_DYNAMIC_######################
 windowSize = 0;
@@ -57,19 +51,19 @@ end
 % Cross correlazioni
 ustrainPerFile = struct('us',[]);
 for i = 1:maxFileNumber
-    us = getFrequencies(...
-      vectorSum(dati(1).polarizeS,...
-      dati(1).polarizeP),...
-      vectorSum(dati(i).polarizeS,...
-      dati(i).polarizeP),...
-      windowSize,...
-      windowStep,...
-      lightSpeed,...
-      refractiveIndex...
-    );
-    ustrainPerFile(i).us = us;
+    us = crosscorrelation(...
+        vectorSum(dati(1).polarizeS, dati(1).polarizeP),...
+        vectorSum(dati(i).polarizeS, dati(i).polarizeP),...
+        windowSize,...
+        windowStep);
+    ustrainPerFile(i).us = us .* k_strain;
 end
 
 % Print vari
-xAxis = 1 : size(ustrainPerFile(2).us, 2);
-plot(xAxis, ustrainPerFile(2).us);
+for i = 1:maxFileNumber
+    xAxis = 1 : size(ustrainPerFile(i).us, 2);
+    figure(i);
+    plot(xAxis, ustrainPerFile(i).us);
+    xlabel("centimeters");
+    ylabel("microstrain");
+end

@@ -1,4 +1,4 @@
-function [fitresult, gof] = myGaussianFit(xdata, ydata)
+function [fitresult, gof] = myGaussianFit(xdata, ydata, xStart)
 %CREATEFIT(XDATA,YDATA)
 %  Create a fit.
 %
@@ -21,7 +21,7 @@ function [fitresult, gof] = myGaussianFit(xdata, ydata)
 ft = fittype( 'a*exp(-((x-b)/c)^2) + d', 'independent', 'x', 'dependent', 'y' );
 opts = fitoptions( 'Method', 'NonlinearLeastSquares' );
 opts.Display = 'Off';
-opts.StartPoint = [15 160 10 -70];
+opts.StartPoint = [15 xStart 10 -70];
 
 % Fit model to data.
 [fitresult, gof] = fit( xData, yData, ft, opts );

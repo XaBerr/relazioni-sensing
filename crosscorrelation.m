@@ -1,4 +1,4 @@
-function [lagDiff] = crosscorrelation(s2, s1, windowSize, windowStep)
+function [lagDiff] = crosscorrelation(s1, s2, windowSize, windowStep)
     lagDiff = [];    
     vMin = 1;
     vMax =  windowSize;

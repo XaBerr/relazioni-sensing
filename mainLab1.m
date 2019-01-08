@@ -10,7 +10,7 @@ signalEnd     = 12.1;
 windowSizeM   = 0.05;
 windowStepM   = 0.01;
 lightSpeed    = 3*10^8;
-k_strain      = 1.2;
+k_strain      = -0.15;
 
 %######################_DYNAMIC_######################
 windowSize = 0;
@@ -51,12 +51,12 @@ end
 % Cross correlazioni
 ustrainPerFile = struct('us',[]);
 for i = 1:maxFileNumber
-    us = crosscorrelation(...
+    dfGHz = crosscorrelation(...
         vectorSum(dati(1).polarizeS, dati(1).polarizeP),...
         vectorSum(dati(i).polarizeS, dati(i).polarizeP),...
         windowSize,...
         windowStep);
-    ustrainPerFile(i).us = us .* k_strain;
+    ustrainPerFile(i).us = dfGHz ./ k_strain;
 end
 
 % Print vari
@@ -64,6 +64,6 @@ for i = 1:maxFileNumber
     xAxis = 1 : size(ustrainPerFile(i).us, 2);
     figure(i);
     plot(xAxis, ustrainPerFile(i).us);
-    xlabel("centimeters");
+    xlabel("millimiters");
     ylabel("microstrain");
 end

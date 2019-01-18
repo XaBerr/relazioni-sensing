@@ -29,9 +29,13 @@ pics = [];
 for i = 1:numberOfFiles
     myX = fliplr(files(i).lambdasM) .* 10^6;
     myY = fliplr(files(i).yData);
-    maxValue = max(myY(:));
-    [rowsOfMaxes colsOfMaxes] = find(myY == maxValue);
-    pics = [pics myX(colsOfMaxes)];
+%     fitresult = myGaussianFit2(myX, myY);% 
+%     newX = myX.';
+%     newY = feval(fitresult, newX);
+%     [pksA, locA] = findpeaks(myY, myX);
+    maxValue = max(imageArray(:));
+    [rowsOfMaxes colsOfMaxes] = find(imageArray == maxValue);
+    pics = [pics locA];
 end
 
 figure;

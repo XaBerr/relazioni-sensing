@@ -4,7 +4,8 @@ close all
 clearvars
 
 %######################_CONST_#######################
-maxFileNumber = 10;
+startingFile  = 2; % 1
+maxFileNumber = 2; % 10
 signalStart   = 6.77; 
 signalEnd     = 12.1;
 windowSizeM   = 0.05;
@@ -49,9 +50,9 @@ end
 
 
 % Cross correlazioni
-ustrainPerFile = struct('us',[]);
-for i = 1:maxFileNumber
-    dfGHz = crosscorrelation(...
+ustrainPerFile = struct('us',[],'max',[],'variance',[],'mean',[]);
+for i = startingFile:maxFileNumber
+    [dfGHz reduced] = crosscorrelation(...
         vectorSum(dati(1).polarizeS, dati(1).polarizeP),...
         vectorSum(dati(i).polarizeS, dati(i).polarizeP),...
         windowSize,...
@@ -60,7 +61,7 @@ for i = 1:maxFileNumber
 end
 
 % Print vari
-for i = 1:maxFileNumber
+for i = startingFile:maxFileNumber
     xAxis = 1 : size(ustrainPerFile(i).us, 2);
     figure(i);
     plot(xAxis, ustrainPerFile(i).us);

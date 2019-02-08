@@ -1,0 +1,11 @@
+function [maximum] = findMaxWithInterp( x, y)
+    [y left right] = cutterGrow(y);
+    myY = myY.';
+    myX = myX(left:right);
+    fitresult = quadraticFit(myX, myY);
+    newX = myX.';
+    newY = feval(fitresult, newX);
+    myX = newX;
+    myY = newY;
+end
+

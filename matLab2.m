@@ -29,6 +29,18 @@ pics = [];
 for i = 1:numberOfFiles
     myX = fliplr(files(i).lambdasM) .* 10^6;
     myY = fliplr(files(i).yData);
+%     [yValue xValue] = findMaxWithInterp(myY, myX);
+%     pics = [pics xValue];
+    % da commentare
+    [myY left right] = cutterGrow(myY);
+    myY = myY.';
+    myX = myX(left:right);
+    fitresult = quadraticFit(myX, myY);
+    newX = myX.';
+    newY = feval(fitresult, newX);
+    myX = newX;
+    myY = newY;
+    % fine commento
     maxValue = max(myY(:));
     [rowsOfMaxes colsOfMaxes] = find(myY == maxValue);
     pics = [pics myX(colsOfMaxes)];

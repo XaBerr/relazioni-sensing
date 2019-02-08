@@ -12,7 +12,7 @@ lightSpeed    = 3*10^8;
 k_strain      = -0.15;
 
 % MAIN PARAMETERS
-windowSizeM   = 0.17;
+windowSizeM   = 0.07;
 windowStepM   = 0.01;
 
 %######################_DYNAMIC_######################

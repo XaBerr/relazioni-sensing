@@ -28,10 +28,10 @@ for i = 1:numberOfFiles
     xMax = 1;
 end
 
-figure;
-plot(fliplr(files(1).lambdasM), fliplr(files(1).yData));
-xlabel("wavelength [m]");
-ylabel("power [dB]");
+% figure;
+% plot(fliplr(files(1).lambdasM), fliplr(files(1).yData));
+% xlabel("wavelength [m]");
+% ylabel("power [dB]");
 
 pics = [];
 for i = 1:numberOfFiles
@@ -41,8 +41,8 @@ for i = 1:numberOfFiles
     pics = [pics xValue];
 end
 
-[fitresult, gof] = myLinearFit(spins .* 10^-2, pics); % delta lambda *  [um] / [m] = delta lambda * u€
-angularCoeficient = fitresult.a; % [mm] * u€
+[fitresult, gof] = myLinearFit((spins-14) , pics); % delta lambda *  [um] / [m] = delta lambda * u€
+angularCoeficient = fitresult.a .* 10^3; % [mm] * u€
 
 sensitivity = angularCoeficient / (lengthOfFiberMM * k_uStrain);
 

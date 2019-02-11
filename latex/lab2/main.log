@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  11 FEB 2019 22:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  11 FEB 2019 23:27
 entering extended mode
 **./main.tex
 (main.tex
@@ -1040,17 +1040,22 @@ Underfull \hbox (badness 3838) in paragraph at lines 69--69
 \T1/cmr/m/n/14.4 fit de-scen-ding cut-ting
  []
 
+<img/spins.jpg, id=28, 562.1pt x 421.575pt>
+File: img/spins.jpg Graphic file (type jpg)
+<use img/spins.jpg>
+Package pdftex.def Info: img/spins.jpg  used on input line 77.
+(pdftex.def)             Requested size: 393.46732pt x 295.10048pt.
 [4 <./img/spectralPower.jpg> <./img/quadratic_fit_scale_90.jpg> <./img/quadrati
-c_fit.jpg>]) [5] (main.aux)
+c_fit.jpg>] [5 <./img/spins.jpg>]) [6] (main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22578 strings out of 492969
- 411270 string characters out of 3127029
+ 22584 strings out of 492969
+ 411361 string characters out of 3127029
  877080 words of memory out of 3000000
- 26203 multiletter control sequences out of 15000+200000
+ 26208 multiletter control sequences out of 15000+200000
  539575 words of font info for 41 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,10n,72p,1216b,1299s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1068,9 +1073,9 @@ ts/cm/cmr12.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmr7.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/fede/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (5 pages, 294514 bytes).
+Output written on main.pdf (6 pages, 320299 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
+ 187 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

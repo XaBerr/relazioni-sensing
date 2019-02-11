@@ -27,12 +27,12 @@ opts.StartPoint = [0.677119483753799 0.898330525448193];
 [fitresult, gof] = fit( xData, yData, ft, opts );
 
 % Plot fit with data.
-figure( 'Name', 'untitled fit 1' );
+figure( 'Name', 'NO untitled fit 1' );
 h = plot( fitresult, xData, yData );
-legend( h, 'pics vs. spins', 'untitled fit 1', 'Location', 'NorthEast' );
+legend( h, 'data', 'linear fit', 'Location', 'NorthEast' );
 % Label axes
-xlabel spins
-ylabel pics
+xlabel("elongation [mm]");
+ylabel("pics wavelength [um]");
 grid on
 
 

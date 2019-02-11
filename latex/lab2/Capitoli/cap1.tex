@@ -10,7 +10,7 @@ Il setup da noi utilizzato è composto da un amplificatore ottico che produce lu
     \label{fig:setup}
 \end{figure}
 
-Quello che viene fatto in questo esperimento è misurare la frequenza d'onda riflessa in funzione all'elongazione applicata. In questo caso l'elongazione è realizata girando a mano un tensore circolare (ghiera): ogni rotazione corrisponde ad un'elongazione di $0.5[mm]$ e sulla ghiera ci sono 50 tacche e quindi abbiamo una elongazione di $0.01[mm]$ per tacca. La nostra fibra partiva da una lunghezza di $14[mm]$ ed l'abbiamo elungata di $1.5[mm]$. Le misurazioni da noi eseguite sono riportate in (Tab.\ref{table:measures}), dove per ogni rotazione è stato riportato il valore della frequenza riflessa calcolato a occhio. La tabella presenta tre colonne di misurazione perché sono state fatte più misurazioni consecutive partendo da 14 ed arrivando a 14.75 poi tornando indietro a 14 e poi ritornando a 14.7. Nella tabella sono anche specificate con la "x" le misurazioni dove è stato memorizzato lo spettro per l'analisi al calcolatore.
+Quello che viene fatto in questo esperimento è misurare la frequenza d'onda riflessa in funzione all'elongazione applicata. In questo caso l'elongazione è realizata girando a mano un tensore circolare (ghiera): ogni rotazione corrisponde ad un'elongazione di $0.5[mm]$ e sulla ghiera ci sono 50 tacche e quindi abbiamo una elongazione di $0.01[mm]$ per tacca. La nostra fibra partiva da una lunghezza di $14[mm]$ ed l'abbiamo elungata di $1.5[mm]$. Le misurazioni da noi eseguite sono riportate in (Tab.\ref{table:measures}), dove per ogni rotazione è stato riportato il valore della frequenza riflessa calcolato a occhio. La tabella presenta tre colonne di misurazione perché sono state fatte più misurazioni consecutive partendo da $14[mm]$ ed arrivando a $14.75[mm]$ poi tornando indietro a $14[mm]$ e poi ritornando a $14.7[mm]$. Nella tabella sono anche specificate con la "x" le misurazioni dove è stato memorizzato lo spettro per l'analisi al calcolatore.
 \begin{table}[h]
   \begin{tabular}{c|c|c|c}
       Position [mm]  &  $\lambda_B$  [nm]  &  $\lambda_B$  [nm]  &  $\lambda_B$  [nm]  \\
@@ -70,6 +70,16 @@ A questo punto per ogni file viene cercato il valore della lunghezza d'onda corr
     \label{fig:quadratic_fit}
   \endminipage
 \end{figure}
+
+A questo punto si è messo in relazione i valori delle lunghezze d'onda appena calcolate con in valori di elongazione come mostato in (Fig.\ref{fig:spins}), avendo impostato i $14[mm]$ come nostro valore di 0 otteniamo un'elongazione di $0.75[mm]$. Da qui abbiamo proceduto con un fit lineare per poter ricavare il coefficiente angolare $a$.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.7]{img/spins.jpg}
+    \caption{Elongation.}
+    \label{fig:spins}
+\end{figure}
+Il coefficiente angolare corrisponde a $a = \Delta \lambda \cdot \mu \epsilon$.
+
 
 \newpage
 \lvli{Conclusion}

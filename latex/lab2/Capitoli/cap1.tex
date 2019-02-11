@@ -1,5 +1,43 @@
 \lvli{Introduction}
 
+In questo esperimento abbiamo analizzato il comportamento di un FBG (Fiber Bragg Grating). L'FBG sfrutta il Bragg Mirror, ovvero un tipo specifico di photonic crystal che agisce come uno specchio per un determinato range di frequenze. Questo photonic crystall è realizzato come un multilayer film dove vengono alternati due materiali con indice di rifrazione differente. Immaginando un Bragg mirror ideale la lunghezza d'onda riflessa è definita come $\lambda_{BRAGG} = \frac{2\pi}{k_{BRAGG}}$ dove $k_{BRAGG}$ costate di propagazione della fase rispetta questa regola $k_{BRAGG} \cdot (L_1 + L_2) = m \cdot \pi$ con $m \in \mathbb{N}$ e $L_1, L_2$ le due lunghezze dei film. Inserendo un Bragg mirror nella fibra otteniamo un'accoppiamento meccanico trai due in particolare nella compressione e elongazione, infatti tirando la fibra tiriamo anche il mirror e modifichiamo quindi il periodo $(L_1 + L_2)$ che a sua volta modifica $\lambda_{BRAGG}$. Da questo effetto fisico possiamo quindi mettere in relazione l'elungazione con la frequenza riflessa.
+
+Il setup da noi utilizzato è composto da un amplificatore ottico che produce luce a banda larga che viene mandata ad una fibra con l'FBG, la luce riflessa passa poi attraverso un circolatore ottico che la manda ad un analizzatore di spettro (Fig.\ref{fig:setup}).
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{img/setup.jpg}
+    \caption{Setup.}
+    \label{fig:setup}
+  \end{figure}
+
+Quello che viene fatto in questo esperimento è misurare la frequenza d'onda riflessa in funzione all'elongazione applicata. In questo caso l'elongazione è realizata girando a mano un tensore circolare (ghiera): ogni rotazione corrisponde ad un'elongazione di $0.5[mm]$ e sulla ghiera ci sono 50 tacche e quindi abbiamo una elongazione di $0.01[mm]$ per tacca. La nostra fibra partiva da una lunghezza di $14[mm]$ ed l'abbiamo elungata di $1.5[mm]$. Le misurazioni da noi eseguite sono riportate in (Tab.\ref{table:measures}), dove per ogni rotazione è stato riportato il valore della frequenza riflessa calcolato a occhio. La tabella presenta tre colonne di misurazione perché sono state fatte più misurazioni consecutive partendo da 14 ed arrivando a 14.75 poi tornando indietro a 14 e poi ritornando a 14.7. Nella tabella sono anche specificate con la "x" le misurazioni dove è stato memorizzato lo spettro per l'analisi al calcolatore.
+\begin{table}[h]
+  \begin{tabular}{c|c|c|c}
+      Position [mm]  &  $\lambda_B$  [nm]  &  $\lambda_B$  [nm]  &  $\lambda_B$  [nm]  \\
+      \hline
+      14     &  1534,691     &  1534,682(x)  &  1534,682     \\
+      14.05  &  1534.861     &  1534.87      &  1534.861     \\
+      14.1   &  1535.032     &  1535.032     &  1535.041(x)  \\
+      14.15  &  1535.229     &  1535.186     &  1535.212     \\
+      14.2   &  1535.391     &  1535.357     &  1535.391(x)  \\
+      14.25  &  1535.604(x)  &  1535.562(x)  &  1535.587     \\
+      14.3   &  1535.784     &  1535.749     &  1535.767(x)  \\
+      14.35  &  1535.937     &  1535.92      &  1535.946     \\
+      14.4   &  1536.125     &  1536.108     &  1536.108(x)  \\
+      14.45  &  1536.305     &  1536.262     &  1536.305     \\
+      14.5   &  1536.509(x)  &  1536.45 (x)  &  1536.467(x)  \\
+      14.55  &  1536.663     &  1536.646     &  1536.646     \\
+      14.6   &  1536.851     &  1536.851     &  1536.842(x)  \\
+      14.65  &  1537.03      &  1537.005     &  1537.005     \\
+      14.7   &  1537.184     &  1537.184     &  1537.184(x)  \\
+      14.75  &  1537.389(x)  &  1537.389     &  1537.38      \\
+
+  \end{tabular}
+  \caption{Measures.}
+  \label{table:measures}
+\end{table}
+
+
 \lvli{Analysis}
 
 \lvli{Conclusion}

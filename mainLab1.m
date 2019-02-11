@@ -3,6 +3,9 @@ clc
 close all
 clearvars
 
+%####################_PATHS_#########################
+addpath("funzioni");
+
 %######################_CONST_#######################
 startingFile  = 2; % 1
 maxFileNumber = 2; % 10

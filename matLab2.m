@@ -28,6 +28,10 @@ for i = 1:numberOfFiles
     xMax = 1;
 end
 
+figure;
+plot(fliplr(files(1).lambdasM), fliplr(files(1).yData));
+xlabel("wavelength [m]");
+ylabel("power [dB]");
 
 pics = [];
 for i = 1:numberOfFiles

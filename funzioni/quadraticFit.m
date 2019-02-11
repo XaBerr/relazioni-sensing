@@ -24,12 +24,12 @@ ft = fittype( 'poly2' );
 [fitresult, gof] = fit( xData, yData, ft );
 
 % Plot fit with data.
-% figure( 'Name', 'untitled fit 1' );
-% h = plot( fitresult, xData, yData );
-% legend( h, 'myY vs. myX', 'untitled fit 1', 'Location', 'NorthEast' );
-% % Label axes
-% xlabel myX
-% ylabel myY
-% grid on
+figure( 'Name', 'untitled fit 1' );
+h = plot( fitresult, xData, yData );
+legend( h, 'data', 'quadratic fit', 'Location', 'NorthEast' );
+% Label axes
+xlabel 'wavelemgth [um]'
+ylabel 'power [dB]'
+grid on
 
 

@@ -8,7 +8,7 @@ Il setup da noi utilizzato è composto da un amplificatore ottico che produce lu
     \includegraphics[scale=0.3]{img/setup.jpg}
     \caption{Setup.}
     \label{fig:setup}
-  \end{figure}
+\end{figure}
 
 Quello che viene fatto in questo esperimento è misurare la frequenza d'onda riflessa in funzione all'elongazione applicata. In questo caso l'elongazione è realizata girando a mano un tensore circolare (ghiera): ogni rotazione corrisponde ad un'elongazione di $0.5[mm]$ e sulla ghiera ci sono 50 tacche e quindi abbiamo una elongazione di $0.01[mm]$ per tacca. La nostra fibra partiva da una lunghezza di $14[mm]$ ed l'abbiamo elungata di $1.5[mm]$. Le misurazioni da noi eseguite sono riportate in (Tab.\ref{table:measures}), dove per ogni rotazione è stato riportato il valore della frequenza riflessa calcolato a occhio. La tabella presenta tre colonne di misurazione perché sono state fatte più misurazioni consecutive partendo da 14 ed arrivando a 14.75 poi tornando indietro a 14 e poi ritornando a 14.7. Nella tabella sono anche specificate con la "x" le misurazioni dove è stato memorizzato lo spettro per l'analisi al calcolatore.
 \begin{table}[h]
@@ -36,8 +36,40 @@ Quello che viene fatto in questo esperimento è misurare la frequenza d'onda rif
   \caption{Measures.}
   \label{table:measures}
 \end{table}
+Da una prima analisi otteniamo la curva riportata in (Fig.\ref{fig:firstAnalisy}).
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.7]{img/firstAnalisy.jpg}
+    \caption{First analisy.}
+    \label{fig:firstAnalisy}
+\end{figure}
 
 
+\newpage
 \lvli{Analysis}
+Come prima cosa sono stati importati i 13 file. Essi contengono i dati relativi agli spettri misurati dallo spettrometro e contengono i due valori di frequenza di partenza e step in frequenza in THz, e poi contengono l'elenco di valori potenza riflessa letti. L'importazione è avvenuta convertendo i valori di frequenza in valori di lunghezza d'onda tramite la relazione fisica $\lambda = \frac{c_0}{f}$, ad ognuno di questi valori è stato assegnato il corrispondente valore di potenza in dB come mostrato in (Fig.\ref{fig:spectralPower}). Da questa figura è anche possibile identificare in maniera abbastanza chiara il piccho da analizzare visto che mentre il segnale ha valori inferiori a $-50[dB]$ esso ha un valore di circa $-30[dB]$.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.7]{img/spectralPower.jpg}
+    \caption{Spectral power for 14[mm] of elongation.}
+    \label{fig:spectralPower}
+\end{figure}
+A questo punto per ogni file viene cercato il valore della lunghezza d'onda corrispondemte al punto di massimo; per migliorare l'analisi viene eseguita un'interpolazione dei punti attraverso una funzione quadratica. Un punto chiave è stato scegliere quali punti considerare nell'approssimazione. Il primo tentativo è stato mediante un'approccio classico, si è scelto di considerare tutti i punti che sono sopra il 90\% del picco che ha comportato una soluzione come in (Fig.\ref{fig:quadratic_fit_scale}), da come si può vedere in questa immagine ci sono un po' di punti intorno al picco che aggiungono del rumore, la scelta successiva sarebbe stata quindi optare per una percentuale maggiore ma così facendo si sarebbe dovuto calcolare a mano per ogni spettro il valore di percentuale ottimale; invece si è scelto un'altro approccio. La soluzione alternativa è stata basata sulla caratteristica di simmetria del picco e segue il seguente approccio: partendo dal punto massimo ci si sposta lateralemente fino a quando non si trovano punti con valori decrescenti, l'esempio di filtraggio dei punti è mostrato in (Fig.\ref{fig:quadratic_fit}).
 
+\begin{figure}[!htb]
+  \minipage{0.32\textwidth}
+    \centering
+    \includegraphics[scale=0.4]{img/quadratic_fit_scale_90.jpg}
+    \caption{Quadratic fit scale 90\%.}
+    \label{fig:quadratic_fit_scale}
+  \endminipage\hfill
+  \minipage{0.32\textwidth}
+    \centering
+    \includegraphics[scale=0.4]{img/quadratic_fit.jpg}
+    \caption{Quadratic fit descending cutting mode.}
+    \label{fig:quadratic_fit}
+  \endminipage
+\end{figure}
+
+\newpage
 \lvli{Conclusion}

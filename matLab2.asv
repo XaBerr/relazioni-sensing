@@ -8,12 +8,11 @@ addpath("funzioni");
 
 %######################_CONST_#######################
 names = [ "SP424102.CSV" "SP453003.CSV" "SP483904.CSV" "SP522905.CSV" "SP550506.CSV" "SP584007.CSV" "SP065108.CSV" "SP104109.CSV" "SP132110.CSV" "SP152511.CSV" "SP183612.CSV" "SP212313.CSV" "SP240814.CSV" ];
-spins = [ 14.25 14.5 14.75 14.5 14.25 14 14.1 14.2 14.3 14.4 14.5 14.6 14.7 ]; % [cm]
+spins = [ 14.25 14.5 14.75 14.5 14.25 14 14.1 14.2 14.3 14.4 14.5 14.6 14.7 ];
 files = struct('yData',[],'fMinTHz',0,'fStepTHz',0,"frequenciesTHz",[],"lambdasM",[]);
 numberOfFiles = 13;
 speedOfLight  = 3*10^8;
-lengthOfFiberMM = 312 - 1.5;
-k_uStrain      = 0.15;
+
 
 %#######################_MAIN_#######################
 for i = 1:numberOfFiles
@@ -31,16 +30,14 @@ end
 
 pics = [];
 for i = 1:numberOfFiles
-    myX = fliplr(files(i).lambdasM) .* 10^6; % [um]
+    myX = fliplr(files(i).lambdasM) .* 10^6;
     myY = fliplr(files(i).yData);
     [yValue xValue] = findMaxWithInterp(myY, myX);
     pics = [pics xValue];
 end
 
-[fitresult, gof] = myLinearFit(spins .* 10^-2, pics); % delta lambda *  [um] / [m] = delta lambda * u€
-angularCoeficient = fitresult.a; % [mm] * u€
-
-sensitivity = angularCoeficient / (lengthOfFiberMM * k_uStrain);
+[fitresult, gof] = myLinearFit(spins, pics);
+angularCoeficient = fitresult.a;
 
 % figure;
 % plot(spins, pics);

@@ -41,8 +41,8 @@ for i = 1:numberOfFiles
     pics = [pics xValue];
 end
 
-[fitresult, gof] = myLinearFit((spins-14) , pics); % [mm / um] = [mm / mm * 10^3] = [um] * 10^-3 / [u€]
-angularCoeficient = fitresult.a * 10^3 * 10^3; % [mm] / [u€]
+[fitresult, gof] = myLinearFit((spins-14) , pics); % [mm / um] = [mm / (mm * 10^-3)] = [m * 10^3 / €]
+angularCoeficient = fitresult.a * 10^3 * 10^3; % [m / €] = [mm * 10^3 / u€ * 10^6] = [mm * 10^-3 / u€]
 
 sensitivity = lengthOfFiberMM / angularCoeficient; % [mm] / [mm / u€]
 

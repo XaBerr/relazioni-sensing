@@ -13,7 +13,7 @@ files = struct('yData',[],'fMinTHz',0,'fStepTHz',0,"frequenciesTHz",[],"lambdasM
 numberOfFiles = 13;
 speedOfLight  = 3*10^8;
 lengthOfFiberMM = 312 - 1.5;
-k_uStrain      = 0.15;
+elongationMM = 1.5;
 
 %#######################_MAIN_#######################
 for i = 1:numberOfFiles
@@ -41,10 +41,10 @@ for i = 1:numberOfFiles
     pics = [pics xValue];
 end
 
-[fitresult, gof] = myLinearFit((spins-14) , pics); % delta lambda *  [um] / [m] = delta lambda * u€
-angularCoeficient = fitresult.a .* 10^3; % [mm] * u€
+[fitresult, gof] = myLinearFit((spins-14) , pics); % [um] / [u€]
+angularCoeficient = fitresult.a * 10^3; % [mm] / [u€]
 
-sensitivity = angularCoeficient / (lengthOfFiberMM * k_uStrain);
+sensitivity = lengthOfFiberMM / angularCoeficient; % [mm] / [mm / u€]
 
 % figure;
 % plot(spins, pics);

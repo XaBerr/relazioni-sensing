@@ -55,7 +55,8 @@ First of all, the 13 files were imported. They contain the data related to the s
     \caption{Spectral power for 14[mm] of elongation.}
     \label{fig:spectralPower}
 \end{figure}
-A questo punto per ogni file viene cercato il valore della lunghezza d'onda corrispondemte al punto di massimo; per migliorare l'analisi viene eseguita un'interpolazione dei punti attraverso una funzione quadratica. Un punto chiave è stato scegliere quali punti considerare nell'approssimazione. Il primo tentativo è stato mediante un'approccio classico, si è scelto di considerare tutti i punti che sono sopra il 90\% del picco che ha comportato una soluzione come in (Fig.\ref{fig:quadratic_fit_scale}), da come si può vedere in questa immagine ci sono un po' di punti intorno al picco che aggiungono del rumore, la scelta successiva sarebbe stata quindi optare per una percentuale maggiore ma così facendo si sarebbe dovuto calcolare a mano per ogni spettro il valore di percentuale ottimale; invece si è scelto un'altro approccio. La soluzione alternativa è stata basata sulla caratteristica di simmetria del picco e segue il seguente approccio: partendo dal punto massimo ci si sposta lateralemente fino a quando non si trovano punti con valori decrescenti, l'esempio di filtraggio dei punti è mostrato in (Fig.\ref{fig:quadratic_fit}).
+At this point, for each file, the value of the wavelength corresponding to the maximum point is searched; to improve the analysis an interpolation of the points is performed through a quadratic function. A key point was to choose which points to consider in the approximation. The first attempt was through a classic approach, we chose to consider all the points that are above 90\% of the peak that resulted in a solution like in (Fig.\ref{fig:quadratic_fit_scale}), as you can see in this image there are a few 'points around the peak that add noise, the next choice would then be to opt for a greater percentage but doing so would have to calculate by hand for each spectrum the optimal value of percentage; instead another approach was chosen.
+The alternative solution was based on the peak symmetry characteristic and follows the following approach: starting from the maximum point you move sideways until you find points with decreasing values, the example of filtering the points is shown in (Fig.\ref{fig:quadratic_fit}).
 
 \begin{figure}[!htb]
   \minipage{0.32\textwidth}
@@ -72,23 +73,23 @@ A questo punto per ogni file viene cercato il valore della lunghezza d'onda corr
   \endminipage
 \end{figure}
 
-A questo punto si è messo in relazione i valori delle lunghezze d'onda appena calcolate con in valori di elongazione come mostato in (Fig.\ref{fig:spins}), avendo impostato i $14[mm]$ come nostro valore di 0 otteniamo un'elongazione di $0.75[mm]$. Da qui abbiamo proceduto con un fit lineare per poter ricavare il coefficiente angolare che corrisponde a $a = \frac{\Delta \lambda}{\mu \epsilon} = 3.588 \cdot 10^{-3}$, esso contiene l'informazione della deformazione del FBG che dipende dalla temperatura e dall'elongazione.
+At this point it is put in relation to the values of the wavelengths newly computed with elongation values shown in (Fig.\ref{fig:spins}), having set the "14 [mm]" as our value of 0 we obtain an elongation of "0.75 [mm]". From here we proceeded with a linear fit to be able to derive the angular coefficient that corresponds to $a = \frac{\Delta \lambda}{\mu \epsilon} = 3.588 \cdot 10^{-3}$, it contains the information on the deformation of the FBG which depends on the temperature and the elongation.
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.7]{img/spins.jpg}
     \caption{Elongation.}
     \label{fig:spins}
 \end{figure}
- Supponendo che la temperatura all'interno della stanza fosse omogenea e che abbiamo svolto l'esperimento in un tempo sufficientemente breve l'effetto della temperatura diventa trascurabile rispetto a quello dell'elongazione. Questo viene anche confermato dall'andamento lineare dei dati ottenuti che si distacca dalla retta di fit di soli $RMSE = 1.6 \cdot 10^{-5}$. Da questo valore possiamo calcolare la sensibility dello strumento mediante la formula:
+ Assuming that the temperature inside the room was homogeneous and that we carried out the experiment in a sufficiently short time, the effect of temperature becomes negligible compared to that of elongation. This is also confirmed by the linear trend of the data obtained which is detached from the line of fit of only $RMSE = 1.6 \cdot 10^{-5}$. From this value we can calculate the sensitivity of the instrument using the formula:
 $$s = \frac{L}{a} = 0.0865[\mu \epsilon]$$
-con $L=310.5[mm]$ la lunghezza della fibra a riposo.
+with $L=310.5[mm]$ the length of the fiber at rest.
 
 
 \newpage
 \lvli{Conclusion}
-Il valore ottenuto è molto simile ai valore tipico per sensori di questo tipo:
+The value obtained is very similar to the typical values for sensors of this type:
 $$\Delta(\mu\epsilon) = \frac{1 [pm]}{ 1.2 [\frac{pm}{\mu\epsilon}]} \approx 0.8 [\mu \epsilon]$$
-L'andamento dei dati raccolti è stato ottimo perché hanno prodotto un andamento lineare come ci aspettavamo con un discostametno di $RMSE = 1.6 \cdot 10^{-5}$. Avendo eseguito le misure sia in contrazione che in elongazione abbiamo avuto la possibilità di controllare l'esistenza o meno di un comportamento di isteresi. I dati raccolti sebbene molto pochi suggeriscono la mancanza di isteresi visto il valore basso di RMSE.
+The performance of the data collected was excellent because they produced a linear trend as we expected with a deviation of $RMSE = 1.6 \cdot 10^{-5}$. Having performed both contraction and elongation measurements, we have had the possibility to check the existence or absence of a hysteresis behavior. Data collected although very few suggest lack of hysteresis given the low value of RMSE.
 
 %% DOMANDE PROF
 % 1) ho un fattore 10 che non mi torna

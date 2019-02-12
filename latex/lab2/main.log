@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  12 FEB 2019 14:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  12 FEB 2019 14:42
 entering extended mode
 **./main.tex
 (main.tex
@@ -1058,7 +1058,7 @@ Here is how much of TeX's memory you used:
  26208 multiletter control sequences out of 15000+200000
  539575 words of font info for 41 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,10n,72p,1357b,1299s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,10n,72p,1371b,1299s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
 cbx2074.pk> <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
 \dpi600\ecbx1440.pk> <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
@@ -1073,9 +1073,9 @@ ts/cm/cmr12.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmr7.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/fede/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (6 pages, 409376 bytes).
+Output written on main.pdf (6 pages, 408881 bytes).
 PDF statistics:
- 183 PDF objects out of 1000 (max. 8388607)
+ 181 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

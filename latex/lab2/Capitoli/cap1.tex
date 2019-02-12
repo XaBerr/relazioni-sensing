@@ -1,8 +1,8 @@
 \lvli{Introduction}
 
-In questo esperimento abbiamo analizzato il comportamento di un FBG (Fiber Bragg Grating). L'FBG sfrutta il Bragg Mirror, ovvero un tipo specifico di photonic crystal che agisce come uno specchio per un determinato range di frequenze. Questo photonic crystall è realizzato come un multilayer film dove vengono alternati due materiali con indice di rifrazione differente. Immaginando un Bragg mirror ideale la lunghezza d'onda riflessa è definita come $\lambda_{BRAGG} = \frac{2\pi}{k_{BRAGG}}$ dove $k_{BRAGG}$ costate di propagazione della fase rispetta questa regola $k_{BRAGG} \cdot (L_1 + L_2) = m \cdot \pi$ con $m \in \mathbb{N}$ e $L_1, L_2$ le due lunghezze dei film. Inserendo un Bragg mirror nella fibra otteniamo un'accoppiamento meccanico trai due in particolare nella compressione e elongazione, infatti tirando la fibra tiriamo anche il mirror e modifichiamo quindi il periodo $(L_1 + L_2)$ che a sua volta modifica $\lambda_{BRAGG}$. Da questo effetto fisico possiamo quindi mettere in relazione l'elungazione con la frequenza riflessa.
+In this experiment we analyzed the behavior of an FBG (Fiber Bragg Grating). The FBG uses the Bragg Mirror, which is a specific type of photonic crystal that acts as a mirror for a given range of frequencies. This photonic crystall can be modeled as a multilayer film where two materials with different refractive index are alternated.Imagining an ideal Bragg mirror the reflected wavelength is defined as $\lambda_{BRAGG} = \frac{2\pi}{k_{BRAGG}}$ where $k_{BRAGG}$ it is the propagation constant of the phase and respects this rule $k_{BRAGG} \cdot (L_1 + L_2) = m \cdot \pi$ with $m \in \mathbb{N}$ and $L_1, L_2$ are the two lengths of the films. By inserting a Bragg mirror into the fiber we obtain a mechanical coupling between the two in particular in compression and elongation, in fact pulling the fiber is also pulled the mirror and then modified the period $(L_1 + L_2)$ which in turn changes $\lambda_{BRAGG}$. From this physical effect we can then relate elongation with the reflected frequency. This mirror, however, is also sensitive to temperature variations, in fact, in addition to creating an expansion or compression of the period, it introduces a variation of the silica refraction index induced by the thermo-optic effect.
 
-Il setup da noi utilizzato è composto da un amplificatore ottico che produce luce a banda larga che viene mandata ad una fibra con l'FBG, la luce riflessa passa poi attraverso un circolatore ottico che la manda ad un analizzatore di spettro (Fig.\ref{fig:setup}).
+The setup we use is composed of an optical amplifier that produces broadband light that is inserted into a fiber containing an FBG, the light that is reflected then passes through an optical circulator that sends it to a spectrum analyzer (Fig.\ref{fig:setup}).
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.3]{img/setup.jpg}
@@ -10,7 +10,7 @@ Il setup da noi utilizzato è composto da un amplificatore ottico che produce lu
     \label{fig:setup}
 \end{figure}
 
-Quello che viene fatto in questo esperimento è misurare la frequenza d'onda riflessa in funzione all'elongazione applicata. In questo caso l'elongazione è realizata girando a mano un tensore circolare (ghiera): ogni rotazione corrisponde ad un'elongazione di $0.5[mm]$ e sulla ghiera ci sono 50 tacche e quindi abbiamo una elongazione di $0.01[mm]$ per tacca. La nostra fibra partiva da una lunghezza di $14[mm]$ ed l'abbiamo elungata di $1.5[mm]$. Le misurazioni da noi eseguite sono riportate in (Tab.\ref{table:measures}), dove per ogni rotazione è stato riportato il valore della frequenza riflessa calcolato a occhio. La tabella presenta tre colonne di misurazione perché sono state fatte più misurazioni consecutive partendo da $14[mm]$ ed arrivando a $14.75[mm]$ poi tornando indietro a $14[mm]$ e poi ritornando a $14.7[mm]$. Nella tabella sono anche specificate con la "x" le misurazioni dove è stato memorizzato lo spettro per l'analisi al calcolatore.
+What is done in this experiment is to measure the reflected wave frequency according to the applied elongation. In this case the elongation is performed by turning a circular manual tensor (ring): each rotation corresponds to an elongation of $0.5 [mm]$ and on the ring there are 50 notches and therefore we have an elongation of $0.01 [mm] $for notch. Our fiber started from a length of $14 [mm]$ and we elongated it by $1.5 [mm]$. The measurements we have performed are shown in (Tab.\ref{table:measures}), where for each rotation the value of the reflected frequency calculated by eye was reported. The table has three measuring columns because more consecutive measurements have been made starting from $14 [mm]$ and reaching $14.75 [mm]$ then going back to $14 [mm]$ and then returning to $14.7 [mm] $. The table also specifies with $x$ the measurements where the spectrum was stored for computer analysis.
 \begin{table}[h]
   \centering
   \begin{tabular}{c|c|c|c}
@@ -37,7 +37,7 @@ Quello che viene fatto in questo esperimento è misurare la frequenza d'onda rif
   \caption{Measures.}
   \label{table:measures}
 \end{table}
-Da una prima analisi otteniamo la curva riportata in (Fig.\ref{fig:firstAnalisy}).
+From a first analysis we obtain the curve shown in (Fig.\ref{fig:firstAnalisy}).
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.7]{img/firstAnalisy.jpg}
@@ -48,7 +48,7 @@ Da una prima analisi otteniamo la curva riportata in (Fig.\ref{fig:firstAnalisy}
 
 \newpage
 \lvli{Analysis}
-Come prima cosa sono stati importati i 13 file. Essi contengono i dati relativi agli spettri misurati dallo spettrometro e contengono i due valori di frequenza di partenza e step in frequenza in THz, e poi contengono l'elenco di valori potenza riflessa letti. L'importazione è avvenuta convertendo i valori di frequenza in valori di lunghezza d'onda tramite la relazione fisica $\lambda = \frac{c_0}{f}$, ad ognuno di questi valori è stato assegnato il corrispondente valore di potenza in dB come mostrato in (Fig.\ref{fig:spectralPower}). Da questa figura è anche possibile identificare in maniera abbastanza chiara il piccho da analizzare visto che mentre il segnale ha valori inferiori a $-50[dB]$ esso ha un valore di circa $-30[dB]$.
+First of all, the 13 files were imported. They contain the data related to the spectra measured by the spectrometer and contain: the two values of starting frequency and frequency step in THz; and then the list of reflected power values read in dB. The importation was made by converting the frequency values into wavelength values through the physical relation $\lambda = \frac{c_0}{f}$, to each of these values the corresponding power value has been assigned as shown in (Fig.\ref{fig:spectralPower}). From this figure it is also possible to clearly identify the peak to be analyzed, since while the signal has values lower than $-50[dB]$ and it has a value of approximately $-30[dB]$.
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.7]{img/spectralPower.jpg}

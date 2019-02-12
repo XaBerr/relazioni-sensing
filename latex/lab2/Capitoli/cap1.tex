@@ -72,7 +72,7 @@ A questo punto per ogni file viene cercato il valore della lunghezza d'onda corr
   \endminipage
 \end{figure}
 
-A questo punto si è messo in relazione i valori delle lunghezze d'onda appena calcolate con in valori di elongazione come mostato in (Fig.\ref{fig:spins}), avendo impostato i $14[mm]$ come nostro valore di 0 otteniamo un'elongazione di $0.75[mm]$. Da qui abbiamo proceduto con un fit lineare per poter ricavare il coefficiente angolare che corrisponde a $a = \frac{\Delta \lambda}{\mu \epsilon}$, esso contiene l'informazione della deformazione del FBG che dipende dalla temperatura e dall'elongazione.
+A questo punto si è messo in relazione i valori delle lunghezze d'onda appena calcolate con in valori di elongazione come mostato in (Fig.\ref{fig:spins}), avendo impostato i $14[mm]$ come nostro valore di 0 otteniamo un'elongazione di $0.75[mm]$. Da qui abbiamo proceduto con un fit lineare per poter ricavare il coefficiente angolare che corrisponde a $a = \frac{\Delta \lambda}{\mu \epsilon} = 3.588 \cdot 10^{-3}$, esso contiene l'informazione della deformazione del FBG che dipende dalla temperatura e dall'elongazione.
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.7]{img/spins.jpg}
@@ -80,9 +80,8 @@ A questo punto si è messo in relazione i valori delle lunghezze d'onda appena c
     \label{fig:spins}
 \end{figure}
  Supponendo che la temperatura all'interno della stanza fosse omogenea e che abbiamo svolto l'esperimento in un tempo sufficientemente breve l'effetto della temperatura diventa trascurabile rispetto a quello dell'elongazione. Questo viene anche confermato dall'andamento lineare dei dati ottenuti che si distacca dalla retta di fit di soli $RMSE = 1.6 \cdot 10^{-5}$. Da questo valore possiamo calcolare la sensibility dello strumento mediante la formula:
-$$s = \frac{L}{a} = 86.5[\mu \epsilon]$$
+$$s = \frac{L}{a} = 0.0865[\mu \epsilon]$$
 con $L=310.5[mm]$ la lunghezza della fibra a riposo.
- % e $k_\epsilon = 0.8[\mu \epsilon]$ valore tipico di strain di un FBG preso come valore positivo perché in elongazione.
 
 
 \newpage
@@ -90,3 +89,8 @@ con $L=310.5[mm]$ la lunghezza della fibra a riposo.
 Il valore ottenuto è molto simile ai valore tipico per sensori di questo tipo:
 $$\Delta(\mu\epsilon) = \frac{1 [pm]}{ 1.2 [\frac{pm}{\mu\epsilon}]} \approx 0.8 [\mu \epsilon]$$
 L'andamento dei dati raccolti è stato ottimo perché hanno prodotto un andamento lineare come ci aspettavamo con un discostametno di $RMSE = 1.6 \cdot 10^{-5}$. Avendo eseguito le misure sia in contrazione che in elongazione abbiamo avuto la possibilità di controllare l'esistenza o meno di un comportamento di isteresi. I dati raccolti sebbene molto pochi suggeriscono la mancanza di isteresi visto il valore basso di RMSE.
+
+%% DOMANDE PROF
+% 1) ho un fattore 10 che non mi torna
+% 2) c'è qualche modo in cui possa ricavarmi l'incertezza sulla sensibility?
+% 3) c'è altro che si può aggiungere?

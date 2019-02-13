@@ -31,7 +31,7 @@ figure( 'Name', 'NO untitled fit 1' );
 h = plot( fitresult, xData, yData );
 legend( h, 'data', 'linear fit', 'Location', 'NorthEast' );
 % Label axes
-xlabel("elongation [mm]");
+xlabel("elongation [strain]");
 ylabel("pics wavelength [um]");
 grid on
 

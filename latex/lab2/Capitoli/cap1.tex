@@ -73,23 +73,27 @@ The alternative solution was based on the peak symmetry characteristic and follo
   \endminipage
 \end{figure}
 
-At this point it is put in relation to the values of the wavelengths newly computed with elongation values shown in (Fig.\ref{fig:spins}), having set the $14 [mm]$ as our value of 0 we obtain an elongation of $0.75 [mm]$. From here we proceeded with a linear fit to be able to derive the angular coefficient that corresponds to $a = \frac{\Delta \lambda}{\mu \epsilon} = 3.588 \cdot 10^{-3}$, it contains the information on the deformation of the FBG which depends on the temperature and the elongation.
+Abbiamo successivamente calcolato i valori di elongazione impostando come 0 il nostro valore di $14[mm]$ ottenendo quindi un valore massimo di elongazione di $0.75[mm]$. A questo punto abbiamo calcolato gli strain dividendo questi valori per la lunghezza a riposo della fibra $L = 310.5$ che successivamente abbiamo messo in relazione con i picchi precedentemente misurati come si vede nel grafico (Fig.\ref{fig:spins}).
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.7]{img/spins.jpg}
     \caption{Elongation.}
     \label{fig:spins}
 \end{figure}
- Assuming that the temperature inside the room was homogeneous and that we carried out the experiment in a sufficiently short time, the effect of temperature becomes negligible compared to that of elongation. This is also confirmed by the linear trend of the data obtained which is detached from the line of fit of only $RMSE = 1.6 \cdot 10^{-5}$. From this value we can calculate the sensitivity of the instrument using the formula:
-$$s = \frac{L}{a} = 0.0865[\mu \epsilon]$$
-with $L=310.5[mm]$ the length of the fiber at rest.
-
+Da qui possiamo ricavarci il coefficiente angolare che prende l'unità di misura di:
+$$\frac{\lambda}{strain}\left[\frac{\mu m}{\epsilon}\right] = \frac{\lambda}{strain}\left[\frac{pm}{\mu\epsilon}\right]$$
+e vale
+$$a = \frac{\Delta \lambda}{ \Delta strain} = 1.114 \left[\frac{pm}{\mu\epsilon}\right]$$
+dalla quale ci ricaviamo la sensibility:
+$$s = \frac{1[pm]}{a} = 0.898 [\mu\epsilon]$$
+Per calcolarci l'errore possiamo sfruttare il discostamento che i punti hanno nell'asse delle y dalla funzione con cui noi abbiamo fatto il fit ovvero $rmse = 1.68\cdot10^{-5} [um]$. Applicando la correzione dove $M = 2$ sono i punti di libertà e $N = 13$ sono i punti presi $q = \frac{rmse}{\sqrt{N - M}}$ ed invertendo la relazione con il coefficiente angolare otteniamo:
+$$e = \frac{q \cdot 10^{-6}}{a} = 4.54 [\mu\epsilon]$$
 
 \newpage
 \lvli{Conclusion}
 The value obtained is very similar to the typical values for sensors of this type:
-$$\Delta(\mu\epsilon) = \frac{1 [pm]}{ 1.2 [\frac{pm}{\mu\epsilon}]} \approx 0.8 [\mu \epsilon]$$
-The performance of the data collected was excellent because they produced a linear trend as we expected with a deviation of $RMSE = 1.6 \cdot 10^{-5}$. Having performed both contraction and elongation measurements, we have had the possibility to check the existence or absence of a hysteresis behavior. Data collected although very few suggest lack of hysteresis given the low value of RMSE.
+$$s = \frac{1 [pm]}{ 1.2 \left[\frac{pm}{\mu\epsilon}\right]} \approx 0.8 [\mu \epsilon]$$
+The performance of the data collected was excellent because they produced a linear trend as we expected with a deviation of $rmse = 1.6 \cdot 10^{-5}$. Having performed both contraction and elongation measurements, we have had the possibility to check the existence or absence of a hysteresis behavior. Data collected although very few suggest lack of hysteresis given the low value of RMSE.
 
 %% DOMANDE PROF
 % 1) ho un fattore 10 che non mi torna

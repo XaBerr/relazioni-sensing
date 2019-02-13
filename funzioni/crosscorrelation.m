@@ -5,23 +5,33 @@ function [lagDiff] = crosscorrelation(s1, s2, windowSize, windowStep)
     flag = 0;
     cuttingScale = 0.9;
     while vMax <= size(s1, 1)
+        % TODO: aggiungere in coda all'array (2 volte la dim di esso) zeri
+        % di padding per aumentare il numero di punti che abbiamo nella fft
+        % bisogna tenerne conto quando calcoliamo però la finestra
         ss1 = abs(fft(s1(vMin:vMax)));
         ss2 = abs(fft(s2(vMin:vMax)));
         ss1 = ss1 - mean(ss1);
         ss2 = ss2 - mean(ss2);
         [yValues, xValues] = xcorr(ss1, ss2);
         yValues = abs(yValues);
-        [yValue xValue] = findMaxWithInterp2(yValues, xValues);
-%         [val, I] = max(signal2analize);
-%         [signal2analize left right] = cutterGrow(signal2analize);
-%         reduced = signal2analize;
         
-%         [val, I] = max(signal2analize);
+        %----------modalità-calcolo-----------
+        [yValue xValue] = findMaxWithInterp2(yValues, xValues);
+        [yValues left right] = cutterGrow(yValues);
+        reduced = yValues;
+        %--------------------------------------
+        
+        %----------modalità-analitica----------
+%         [xValue, I] = max(yValues);
 %         if flag < 10
 %             flag = flag + 1;
 %             figure;
-%             plot(1:size(signal2analize, 1), signal2analize);
+%             plot(xValues, yValues);
 %         end
+        %--------------------------------------
+        
+        % TODO: Bisogna relazionare xValue con windowSize per ottenersi lo shift
+        
         lagDiff = [lagDiff xValue];
         vMin = vMin + windowStep;
         vMax = vMax + windowStep;

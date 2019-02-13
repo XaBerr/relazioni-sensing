@@ -41,10 +41,11 @@ for i = 1:numberOfFiles
     pics = [pics xValue];
 end
 
-[fitresult, gof] = myLinearFit((spins-14) , pics); % [mm / um] = [mm / (mm * 10^-3)] = [m * 10^3 / €]
-angularCoeficient = fitresult.a * 10^3 * 10^3; % [m / €] = [mm * 10^3 / u€ * 10^6] = [mm * 10^-3 / u€]
-
-sensitivity = lengthOfFiberMM / angularCoeficient; % [mm] / [mm / u€]
+[fitresult, gof] = myLinearFit((spins-14)./lengthOfFiberMM , pics); % [mm / um] = [mm / (mm * 10^-3)] = [m * 10^3 / €]
+angularCoeficient = fitresult.a; % [m / €] = [mm * 10^3 / u€ * 10^6] = [mm * 10^-3 / u€]
+errore = gof.rmse / sqrt(13 - 2); % [mm]
+sensore = errore  / (angularCoeficient * 10^-6); % [u€]
+% sensitivity =  / angularCoeficient; % [mm] / [mm / u€]
 
 % figure;
 % plot(spins, pics);

@@ -84,7 +84,7 @@ end
 % Cross correlazioni
 ustrainPerFile = struct('us',[],'max',[],'variance',[],'mean',[], ...
     'spectral_shift', []);
-interpFactor = 0;
+interpFactor = -1;
 for i = 1:filecount
 
     fprintf('Elaborating file %d/%d\n', i, filecount);
@@ -95,7 +95,8 @@ for i = 1:filecount
         dati(i).total,...
         windowSize,...
         windowStep, ...
-        interpFactor,0);
+        interpFactor,...
+        1);
 
     % compute time axis from z axis
     % direct computation gives values in Hertz

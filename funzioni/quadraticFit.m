@@ -23,7 +23,7 @@ ft = fittype( 'poly2' );
 % Fit model to data.
 [fitresult, gof] = fit( xData, yData, ft );
 
-% Plot fit with data.
+% % Plot fit with data.
 % figure( 'Name', 'untitled fit 1' );
 % h = plot( fitresult, xData, yData );
 % legend( h, 'data', 'quadratic fit', 'Location', 'NorthEast' );

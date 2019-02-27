@@ -23,7 +23,7 @@ function [lagDiff, padding] = crosscorrelation(reference, signal, windowSize, ..
     
     % dimensione della trasformata. Aumentando il numero di punti aumenta
     % la risoluzione spettrale
-    padding = 3 * windowSize;
+    padding = 10 * windowSize;
     
     % numero di campioni in ogni traccia
     nsamples = size(reference, 1);
@@ -56,6 +56,13 @@ function [lagDiff, padding] = crosscorrelation(reference, signal, windowSize, ..
             xValues = xInterp;
             yValues = yInterp;
         end
+
+        [~, idx] = max(yValues);
+        xValue = xValues(idx);
+
+        if (interpFactor < 0)
+            [yValue xValue] = findMaxWithInterp2(yValues, xValues);
+        end
         
         if flag < 1
             flag = flag + 1;
@@ -64,11 +71,6 @@ function [lagDiff, padding] = crosscorrelation(reference, signal, windowSize, ..
             xlabel("Lags");
             ylabel("Cross-correlation");
         end
-        
-%         yValues = abs(yValues);
-        
-        [~, idx] = max(yValues);
-        xValue = xValues(idx);
         
         lagDiff = [lagDiff xValue];
         vMin = vMin + windowStep;

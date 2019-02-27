@@ -1,5 +1,5 @@
 function [lagDiff, padding] = crosscorrelation(reference, signal, windowSize, ...
-    windowStep, interpFactor)
+    windowStep, interpFactor, flag)
 %CROSSCORRELATION 
 %
 %   reference: la traccia di riferimento. Vettore [Nx2], N = numero di
@@ -23,7 +23,7 @@ function [lagDiff, padding] = crosscorrelation(reference, signal, windowSize, ..
     
     % dimensione della trasformata. Aumentando il numero di punti aumenta
     % la risoluzione spettrale
-    padding = 2 * windowSize;
+    padding = 3 * windowSize;
     
     % numero di campioni in ogni traccia
     nsamples = size(reference, 1);
@@ -32,10 +32,7 @@ function [lagDiff, padding] = crosscorrelation(reference, signal, windowSize, ..
     
     while vMax <= nsamples        
         ref = reference(vMin:vMax, :);
-        ref = ref - mean(ref);
-        
         sig = signal(vMin:vMax, :);
-        sig = sig - mean(sig);
        
         ss1 = fft(ref, padding);
         ss2 = fft(sig, padding);
@@ -43,6 +40,9 @@ function [lagDiff, padding] = crosscorrelation(reference, signal, windowSize, ..
         % somma dei moduli delle due polarizzazioni
         refModulo = abs(ss1(:, 1)).^2 + abs(ss1(:, 2)).^2;
         misuraModulo = abs(ss2(:, 1)).^2 + abs(ss2(:, 2)).^2;
+        
+        refModulo = refModulo - mean(refModulo);
+        misuraModulo = misuraModulo - mean(misuraModulo);
         
         % calcolo cross correlazione tra le due finestre
         [yValues, xValues] = xcorr(refModulo, misuraModulo);
@@ -57,6 +57,13 @@ function [lagDiff, padding] = crosscorrelation(reference, signal, windowSize, ..
             yValues = yInterp;
         end
         
+        if flag < 1
+            flag = flag + 1;
+            figure;
+            plot(xValues, yValues,'.r', 'MarkerSize', 10); % stem
+            xlabel("Lags");
+            ylabel("Cross-correlation");
+        end
         
 %         yValues = abs(yValues);
         

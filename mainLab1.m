@@ -1,6 +1,6 @@
 %####################_CLEANING_#######################
 clc
-% close all
+close all
 clearvars
 
 %####################_PATHS_#########################
@@ -58,6 +58,7 @@ windowStep = ceil(windowStepM / tick2M);
 dati = struct('meters',[],'polarizeP',[],'polarizeS',[], 'abs', [], ...
     'info',{});
 
+datiDevice = struct('x',[],'y',[]);
 for i = 0 : filecount-1
     file_index = startingFile + i;
     filename = sprintf('dataLab1/%d.obr', file_index);
@@ -69,17 +70,21 @@ for i = 0 : filecount-1
     dati(i+1).polarizeP = P(vectorStart:vectorEnd);
     dati(i+1).polarizeS = S(vectorStart:vectorEnd);
     dati(i+1).total = [dati(i+1).polarizeP(:), dati(i+1).polarizeS(:)];
-
-
     dati(i+1).info = info;
-%     dati(i+1).abs = dati(i+1).polarizeP;% + dati(i+1).polarizeS;
+    
+    [x, y] = importFileOfReference(sprintf('dataLab1/%d_Lower.txt', file_index));
+    datiDevice(i+1).x = x;
+    datiDevice(i+1).y = y;
 end
+
+
+% return; %% SCOMMENTAMI SE VUOI STOPPARMI
 
 %%
 % Cross correlazioni
 ustrainPerFile = struct('us',[],'max',[],'variance',[],'mean',[], ...
     'spectral_shift', []);
-interpFactor = 10;
+interpFactor = 0;
 for i = 1:filecount
 
     fprintf('Elaborating file %d/%d\n', i, filecount);
@@ -90,7 +95,7 @@ for i = 1:filecount
         dati(i).total,...
         windowSize,...
         windowStep, ...
-        interpFactor);
+        interpFactor,0);
 
     % compute time axis from z axis
     % direct computation gives values in Hertz
@@ -113,6 +118,8 @@ for i = 1:filecount
 end
 
 %% Print vari
+
+% Print micro strain che abbiamo trovato noi
 figure(1);
 clf;
 hold on;
@@ -121,7 +128,6 @@ for i = 1:filecount
     xAxis = (0 : windowCount - 1) * windowStepM; % meters
     plot(xAxis, ustrainPerFile(i).us);
 end
-
 legend;
 xlabel("Position [m]");
 ylabel("Strain [microstrain]");
@@ -130,17 +136,33 @@ grid minor;
 hold off;
 title('Strain measurement');
 
-figure(3);
+% Print micro strain del dispositivo
+figure(2);
 clf;
 hold on;
-for i = 2:2
-    windowCount = length(ustrainPerFile(i).spectral_shift);
-    xAxis = (0 : windowCount - 1) * windowStepM; % meters
-    plot(xAxis, ustrainPerFile(i).spectral_shift);
+for i = 1:filecount
+    plot(datiDevice(i).x, (datiDevice(i).y./ k_strain) );
 end
+legend;
 xlabel("Position [m]");
-ylabel("Spectral shift [GHz]");
+ylabel("Strain [microstrain]");
 grid on;
 grid minor;
 hold off;
-title('Spectral shift');
+title('Strain measurement');
+
+% Non lo so
+% figure(3);
+% clf;
+% hold on;
+% for i = 2:2
+%     windowCount = length(ustrainPerFile(i).spectral_shift);
+%     xAxis = (0 : windowCount - 1) * windowStepM; % meters
+%     plot(xAxis, ustrainPerFile(i).spectral_shift);
+% end
+% xlabel("Position [m]");
+% ylabel("Spectral shift [GHz]");
+% grid on;
+% grid minor;
+% hold off;
+% title('Spectral shift');

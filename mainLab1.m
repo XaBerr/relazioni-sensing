@@ -62,15 +62,15 @@ for i = 0 : filecount-1
     file_index = startingFile + i;
     filename = sprintf('dataLab1/%d.obr', file_index);
     fprintf('Reading file: %s\n', filename);
-        
+
     [z, P, S, info] = loadOBR(filename);
-    
+
     dati(i+1).meters = z(vectorStart:vectorEnd);
     dati(i+1).polarizeP = P(vectorStart:vectorEnd);
     dati(i+1).polarizeS = S(vectorStart:vectorEnd);
     dati(i+1).total = [dati(i+1).polarizeP(:), dati(i+1).polarizeS(:)];
 
-    
+
     dati(i+1).info = info;
 %     dati(i+1).abs = dati(i+1).polarizeP;% + dati(i+1).polarizeS;
 end
@@ -81,48 +81,48 @@ ustrainPerFile = struct('us',[],'max',[],'variance',[],'mean',[], ...
     'spectral_shift', []);
 interpFactor = 10;
 for i = 1:filecount
-    
+
     fprintf('Elaborating file %d/%d\n', i, filecount);
-    
+
     % compute the spectral shift in number of samples
     [shift_samples, padding] = crosscorrelation(...
         dati(1).total,... % reference trace
         dati(i).total,...
-        windowSize,...        
+        windowSize,...
         windowStep, ...
         interpFactor);
-    
+
     % compute time axis from z axis
     % direct computation gives values in Hertz
     t = 2 * dati(i).meters * dati(i).info.group_indx / lightSpeed; % sec
     dt1 = mean(diff(t));
-    
+
     % computing from dt given by OBR gives values in GHz
     dt = dati(i).info.dt; % nanosec.
-    
+
     % frequency spacing: difference in GHz between adjacent values
     % padding: number of samples of each window (W tilde)
     df = 1 / (dt *  padding);
-    
+
     % compute the spectral shift from the frequency spacing
     spectral_shift = df * shift_samples; % GHz
-    ustrainPerFile(i).spectral_shift = spectral_shift;    
-    
+    ustrainPerFile(i).spectral_shift = spectral_shift;
+
     % estimate the applied strain from strain constant [GHz/ustrain]
     ustrainPerFile(i).us = spectral_shift ./ k_strain;
 end
 
-%%
-% Print vari
+%% Print vari
 figure(1);
 clf;
 hold on;
 for i = 1:filecount
     windowCount = length(ustrainPerFile(i).us);
-    xAxis = (0 : windowCount - 1) * windowStepM; % meters    
-    plot(xAxis, ustrainPerFile(i).us);    
+    xAxis = (0 : windowCount - 1) * windowStepM; % meters
+    plot(xAxis, ustrainPerFile(i).us);
 end
 
+legend;
 xlabel("Position [m]");
 ylabel("Strain [microstrain]");
 grid on;
@@ -135,8 +135,8 @@ clf;
 hold on;
 for i = 2:2
     windowCount = length(ustrainPerFile(i).spectral_shift);
-    xAxis = (0 : windowCount - 1) * windowStepM; % meters    
-    plot(xAxis, ustrainPerFile(i).spectral_shift);    
+    xAxis = (0 : windowCount - 1) * windowStepM; % meters
+    plot(xAxis, ustrainPerFile(i).spectral_shift);
 end
 xlabel("Position [m]");
 ylabel("Spectral shift [GHz]");
@@ -144,6 +144,3 @@ grid on;
 grid minor;
 hold off;
 title('Spectral shift');
-
-
-

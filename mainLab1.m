@@ -8,17 +8,18 @@ addpath('./funzioni');
 
 %######################_CONST_#######################
 startingFile  = 1; % 1
-maxFileNumber = 25; % 10
+maxFileNumber = 3; %25; % 10
 % number of files to process (counting the reference)
 filecount = maxFileNumber - startingFile + 1;
 
 lightSpeed    = 3*10^8; % m/s
-k_strain      = -0.15;
+k_strain      = -0.15; % -0.780;
 
 % choose the portion of the signal to analyze
 signalStart   = 6.77; % meters
 signalEnd     = 12.1; % meters
 fiberLength   = abs(signalEnd - signalStart);
+xDifference   = 0:fiberLength/1000:fiberLength;
 
 % MAIN PARAMETERS
 windowSizeM   = 0.05; % window size in meters
@@ -73,7 +74,7 @@ for i = 0 : filecount-1
     dati(i+1).info = info;
     
     [x, y] = importFileOfReference(sprintf('dataLab1/%d_Lower.txt', file_index));
-    datiDevice(i+1).x = x;
+    datiDevice(i+1).x = x - signalStart;
     datiDevice(i+1).y = y;
 end
 
@@ -84,6 +85,7 @@ end
 % Cross correlazioni
 ustrainPerFile = struct('us',[],'max',[],'variance',[],'mean',[], ...
     'spectral_shift', []);
+difference = struct('us',[],'otdr',[],'diff',[],"mean",0,'var',0);
 interpFactor = -1;
 for i = 1:filecount
 
@@ -116,7 +118,21 @@ for i = 1:filecount
 
     % estimate the applied strain from strain constant [GHz/ustrain]
     ustrainPerFile(i).us = spectral_shift ./ k_strain;
+    
+    %% Analisi della differenza tra i 2 grafici
+    xAxis = (0 : length(ustrainPerFile(i).us) - 1) * windowStepM;
+    [fitresult1, gof1] = splineFit(xAxis, ustrainPerFile(i).spectral_shift);
+    [fitresult2, gof2] = splineFit(datiDevice(i).x, datiDevice(i).y);
+    difference(i).us   = feval(fitresult1, xDifference);
+    difference(i).otdr = feval(fitresult2, xDifference);
+    difference(i).diff = difference(i).us - difference(i).otdr;
+    difference(i).mean = mean(difference(i).diff) /  mean(difference(i).us); % high => systematic error
+    difference(i).var  = var(difference(i).diff); % high => noise error
 end
+
+
+
+
 
 %% Print vari
 
@@ -135,7 +151,7 @@ ylabel("Strain [microstrain]");
 grid on;
 grid minor;
 hold off;
-title('Strain measurement');
+title('Strain measurement US');
 
 % Print micro strain del dispositivo
 figure(2);
@@ -150,20 +166,19 @@ ylabel("Strain [microstrain]");
 grid on;
 grid minor;
 hold off;
-title('Strain measurement');
+title('Strain measurement OTDR');
 
-% Non lo so
-% figure(3);
-% clf;
-% hold on;
-% for i = 2:2
-%     windowCount = length(ustrainPerFile(i).spectral_shift);
-%     xAxis = (0 : windowCount - 1) * windowStepM; % meters
-%     plot(xAxis, ustrainPerFile(i).spectral_shift);
-% end
-% xlabel("Position [m]");
-% ylabel("Spectral shift [GHz]");
-% grid on;
-% grid minor;
-% hold off;
-% title('Spectral shift');
+% Print differenze
+figure(3);
+clf;
+hold on;
+for i = 1:filecount
+    plot(xDifference, difference(i).diff );
+end
+legend;
+xlabel("Position [m]");
+ylabel("Strain [microstrain]");
+grid on;
+grid minor;
+hold off;
+title('Strain measurement DIFF');

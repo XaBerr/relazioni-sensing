@@ -48,29 +48,21 @@ From a first analysis we obtain the curve shown in (Fig.\ref{fig:firstAnalisy}).
 
 \newpage
 \lvli{Analysis}
-First of all, the 13 files were imported. They contain the data related to the spectra measured by the spectrometer and contain: the two values of starting frequency and frequency step in THz; and then the list of reflected power values read in dB. The importation was made by converting the frequency values into wavelength values through the physical relation $\lambda = \frac{c_0}{f}$, to each of these values the corresponding power value has been assigned as shown in (Fig.\ref{fig:spectralPower}). From this figure it is also possible to clearly identify the peak to be analyzed, since while the signal has values lower than $-50[dB]$ and it has a value of approximately $-30[dB]$.
+First of all, the 13 files were imported. They contain the data related to the spectral measured by the spectrometer and contain: the two values of starting frequency and frequency step in THz; and then the list of reflected power values read in dB. The importation was made by converting the frequency values into wavelength values through the physical relation $\lambda = \frac{c_0}{f}$, to each of these values the corresponding power value has been assigned as shown in (Fig.\ref{fig:spectralPower}). From this figure it is also possible to clearly identify the peak to be analyzed, since while the signal has values lower than $-50[dB]$ and it has a value of approximately $-30[dB]$.
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.7]{img/spectralPower.jpg}
     \caption{Spectral power for 14[mm] of elongation.}
     \label{fig:spectralPower}
 \end{figure}
-At this point, for each file, the value of the wavelength corresponding to the maximum point is searched; to improve the analysis an interpolation of the points is performed through a quadratic function. A key point was to choose which points to consider in the approximation. The first attempt was through a classic approach, we chose to consider all the points that are above 90\% of the peak that resulted in a solution like in (Fig.\ref{fig:quadratic_fit_scale}), as we can see in this image there are a few points around the peak that add noise, the next choice would then be to opt for a greater percentage but doing so would have to calculate by hand for each spectrum the optimal value of percentage; instead another approach was chosen.
-The alternative solution was based on the peak symmetry characteristic and follows the following approach: starting from the maximum point we move sideways until we find points with decreasing values, the example of filtering the points is shown in (Fig.\ref{fig:quadratic_fit}).
 
-\begin{figure}[!htb]
-  \minipage{0.32\textwidth}
+At this point, for each file, the value of the wavelength corresponding to the maximum point is searched; to improve the analysis an interpolation of the points is performed through a quadratic function. A key point was to choose which points to consider in the approximation.
+The selection of the points was made by choosing all the points that are above 90\% of the peak as we can see from the figure (Fig.\ref{fig:peak}) checking to have at least 4 points of analysis that correspond to one point more than degrees of freedom (3).
+\begin{figure}[h]
     \centering
-    \includegraphics[scale=0.4]{img/quadratic_fit_scale_90.jpg}
-    \caption{Quadratic fit scale 90\%.}
-    \label{fig:quadratic_fit_scale}
-  \endminipage\hfill
-  \minipage{0.32\textwidth}
-    \centering
-    \includegraphics[scale=0.4]{img/quadratic_fit.jpg}
-    \caption{Quadratic fit descending cutting mode.}
-    \label{fig:quadratic_fit}
-  \endminipage
+    \includegraphics[scale=0.7]{img/peak.jpg}
+    \caption{Quadratic approximation for the points above the 90\% of maximum value of the function.}
+    \label{fig:peak}
 \end{figure}
 
 We then calculated the elongation values by setting our value of $14 [mm]$ as 0, thus obtaining a maximum elongation value of $0.75 [mm]$. At this point we calculated the strain by dividing these values by the rest length of the fiber $L = 310.5 [mm]$ which we subsequently correlated with the previously measured peaks as shown in the graph (Fig.\ref{fig:spins}).
@@ -84,21 +76,18 @@ From here we can obtain the angular coefficient that takes the unit of measure o
 $$\frac{\lambda}{strain}\left[\frac{\mu m}{\epsilon}\right] = \frac{\lambda}{strain}\left[\frac{pm}{\mu\epsilon}\right]$$
 and it is
 $$a = \frac{\Delta \lambda}{ \Delta strain} = 1.114 \left[\frac{pm}{\mu\epsilon}\right]$$
-from which we get the sensibility:
-$$s = \frac{1[pm]}{a} = 0.898 [\mu\epsilon]$$
-To calculate the error we can exploit the deviation that the points have in the y-axis from the function with which we have made the fit $rmse = 1.68\cdot10^{-5} [\mu m]$. Applying the correction where $M = 2$ are the points of freedom and $N = 13$ are the points taken $q = \frac{rmse}{\sqrt{N - M}} [\mu m]$ and inverting the relationship with the angular coefficient we obtain:
-$$e = \frac{q \cdot 10^{6} [pm]}{a \left[\frac{pm}{\mu\epsilon}\right]} = 4.54 [\mu\epsilon]$$
+which corresponds to our value of sensibility:
+$$s = a = 1 \left[\frac{pm}{\mu\epsilon}\right]$$
+
+To estimate the uncertainty provided by the sensor we can exploit the deviation that the points have in the y-axis from the function with which we have made the fit $rmse = 1.68\cdot10^{-5} [\mu m]$. Applying the correction where $M = 2$ are the points of freedom and $N = 13$ are the points taken $q = \frac{rmse}{\sqrt{N - M}} [\mu m]$ and inverting the relationship with the angular coefficient we obtain:
+$$e = \frac{q \cdot 10^{6} [pm]}{a \left[\frac{pm}{\mu\epsilon}\right]} = 5 [\mu\epsilon]$$
 
 \newpage
 \lvli{Conclusion}
+The performance of the data collected was excellent because they produced a linear trend as we expected with a deviation of $rmse = 1.6 \cdot 10^{-5}[\mu m]$.
+
+The uncertainty $e = 5 [\mu\epsilon]$ is slightly higher than the typical value of $1 [\mu\epsilon]$ compared to the usual sensors, but we can not make more precise evaluations because we do not have the specific data of that sensor.
+
 The value obtained is very similar to the typical values for sensors of this type:
-$$s = \frac{1 [pm]}{ 1.2 \left[\frac{pm}{\mu\epsilon}\right]} \approx 0.8 [\mu \epsilon]$$
+$$s =  1.1 \left[\frac{pm}{\mu\epsilon}\right] \approx 1.2 \left[\frac{pm}{\mu\epsilon}\right]$$
 this difference in value can be given by the uncertainty of the measurements made on the length of the fiber and on the rotations made by the tensor, in addition there is also a component that depends on temperature, even if of minor influence, since the experiment it lasted about two hours and then the room had the chance to warm up.
-
-The performance of the data collected was excellent because they produced a linear trend as we expected with a deviation of $rmse = 1.6 \cdot 10^{-5}[\mu m]$. Having performed both contraction and elongation measurements, we have had the possibility to check the existence or absence of a hysteresis behavior. Data collected although very few suggest lack of hysteresis given the low value of $rmse$.
-
-%% DOMANDE PROF
-% 1) ho un fattore 10 che non mi torna
-% 2) c'è qualche modo in cui possa ricavarmi l'incertezza sulla sensibility?
-% 3) c'è altro che si può aggiungere?
-% 4) lo spettometro legge potenza? in dB?

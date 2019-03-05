@@ -6,13 +6,14 @@ function [reduced, left, right] = cutterScale(s1, cuttingScale)
         s1 = s1.';
     end
     [minimum] = min(s1);
-    [maximum, pos] = max(s1);
+    s2 = s1 - minimum;
+    [maximum, pos] = max(s2);
     left = pos;
     right = pos;
-    while (left ~= 0) && (s1(left) > (maximum - (maximum - minimum) * cuttingScale))
+    while (left ~= 0) && (s2(left) > (maximum * cuttingScale))
         left = left - 1;
     end
-    while (right ~= (size(s1, 1) - 1)) && (s1(right) > (maximum - (maximum - minimum) * cuttingScale))
+    while (right ~= (size(s2, 1) - 1)) && (s2(right) > (maximum * cuttingScale))
         right = right + 1;
     end
     reduced = s1(left:right);

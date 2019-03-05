@@ -37,15 +37,15 @@ pics = [];
 for i = 1:numberOfFiles
     myX = fliplr(files(i).lambdasM) .* 10^6; % [um]
     myY = fliplr(files(i).yData);
-    [yValue xValue] = findMaxWithInterp(myY, myX);
+    [yValue xValue] = findMaxWithInterp2(myY, myX);
     pics = [pics xValue];
 end
 
 [fitresult, gof] = myLinearFit((spins-14)./lengthOfFiberMM , pics); % [um] / [mm/mm] = [pm * 10^6] / [u€ * 10^6] = [pm / u€]
 angularCoeficient = fitresult.a; % [pm / u€] = [m/€] 10^-6
 erroreSuY = gof.rmse / sqrt(13 - 2); % [um]
-erroreS = erroreSuY * 10^6  / angularCoeficient; % [um * 10^6] / [pm / u€] = [u€]
-S = 1/angularCoeficient;
+incertezza = erroreSuY * 10^6  / angularCoeficient; % [um * 10^6] / [pm / u€] = [u€]
+S = angularCoeficient;
 % figure;
 % plot(spins, pics);
 

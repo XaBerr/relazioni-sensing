@@ -7,6 +7,9 @@ function [yValue, xValue] = findMaxWithInterp2( y, x)
     end
     [y, left, right] = cutterScale(y, 0.8);
     x = x(left:right);
+    if  right - left < 4
+        error("Errore i punti sono meno di 4, l'approssimazione non è buona!");
+    end
     fitresult = quadraticFit(x, y);
     y = feval(fitresult, x);
     [yValue, pos] = max(y);

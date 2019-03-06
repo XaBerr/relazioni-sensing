@@ -1,4 +1,4 @@
-\lvli{Introduction}
+% \lvli{Introduction}
 Considerando la fibra come un'insieme di cristalli di silica e misurando il backscattering di rayleigh è possibile ottenere un'impronta digitale unica della fibra, questa impronta rimane invariata fintanto
 che la fibra non subisce perturbazioni. È quindi possibile realizzare un sensore di misura di strain o
 di temperatura confrontando il profilo di scattering a riposo con quello sotto sforzo. Immaginando di applicare uno strain alla fibra si può immaginare che questi cristalli vengano tirati e quindi l'impronta venga sfasata nell'intorno del punto di analisi. Applicando quindi la crosscorrelazione è possibile risalire alla quantità di strain misurando lo shift in frequenza tra i due segnali. è importante notare che l'analisi della crosscorrelazione è un'analisi puntuale nel senso che il confronto tra i due segnali non viene fatta prendendo come riferimento tutta la fibra ma solo una porzione. La dimensione della porzione è importante perché influenza la risoluzione spettrale e il rapporto segnale rumore della mirusa effettuata. Sebbene segnmenti lunghi migliorano l'accuracy è necessario scegliere segmenti più piccoli per evitare effentti di interferenza delle regioni non interessate. Uno shift tra i due spettri è possibile ricondurlo ad un'effetto di strain rispetto questa formula:
@@ -7,6 +7,42 @@ Nel nostro caso siamo interessati ad effettuare una misura di strain e a conside
 $$\frac{\Delta\lambda}{\lambda} \approx K_{\epsilon}\epsilon $$
 con $K_{\epsilon} = -0.$
 
-\lvli{Analysis}
 
-\lvli{Conclusion}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{c|c|c|c}
+      file name & weight & ymax & ymin \\
+			\hline
+      1 & 0 &  &  \\
+      2 & 60 &  &  \\
+      3 & 120 &  &  \\
+      4 & 180 & 84,9 & -72 \\
+      5 & 240 & 112 & -95 \\
+      6 & 300 & 138 & -118 \\
+      7 & 359 & 165 & -138 \\
+      8 & 418 & 189 & -164 \\
+      9 & 476 & 213 & -182 \\
+      10 & 534 & 238 & -202 \\
+      11 & 591 & 261 & -220 \\
+      12 & 686 & 300 & -256 \\
+      13 & 782 & 339 & -289 \\
+      14 & 686 &  &  \\
+      15 & 591 &  &  \\
+      16 & 534 &  &  \\
+      17 & 476 &  &  \\
+      18 & 418 &  &  \\
+      19 & 359 &  &  \\
+      20 & 300 &  &  \\
+      21 & 240 &  &  \\
+      22 & 180 &  &  \\
+      23 & 120 &  &  \\
+      24 & 60 &  &  \\
+      25 & 0 &  &  \\
+
+
+
+  \end{tabular}
+  \caption{Measures.}
+  \label{table:measures}
+\end{table}

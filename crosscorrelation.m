@@ -1,5 +1,5 @@
 function [lagDiff, padding] = crosscorrelation(reference, signal, windowSize, ...
-    windowStep, interpFactor, flag)
+    windowStep, interpFactor, flag, nPadding)
 %CROSSCORRELATION 
 %
 %   reference: la traccia di riferimento. Vettore [Nx2], N = numero di
@@ -23,7 +23,7 @@ function [lagDiff, padding] = crosscorrelation(reference, signal, windowSize, ..
     
     % dimensione della trasformata. Aumentando il numero di punti aumenta
     % la risoluzione spettrale
-    padding = 10 * windowSize;
+    padding = nPadding * windowSize;
     
     % numero di campioni in ogni traccia
     nsamples = size(reference, 1);

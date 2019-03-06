@@ -24,6 +24,8 @@ xDifference   = 0:fiberLength/1000:fiberLength;
 % MAIN PARAMETERS
 windowSizeM   = 0.05; % window size in meters
 windowStepM   = 0.01; % window steps in meters
+interpFactor  = -1;   % -1 quadratic fit, 0 nothing, >1 spline
+nPadding      = 10;   % moltiplicatore dimension
 
 %######################_DYNAMIC_######################
 windowSize = 0;
@@ -97,7 +99,7 @@ end
 ustrainPerFile = struct('us',[],'max',[],'variance',[],'mean',[], ...
     'spectral_shift', []);
 difference = struct('our',[],'otdr',[],'diff',[],"mean",0,'var',0);
-interpFactor = -1;
+
 for i = 1:filecount
 
     fprintf('Elaborating file %d/%d\n', i, filecount);
@@ -109,7 +111,8 @@ for i = 1:filecount
         windowSize,...
         windowStep, ...
         interpFactor,...
-        1);
+        1,...
+        nPadding);
 
     % compute time axis from z axis
     % direct computation gives values in Hertz
@@ -177,7 +180,7 @@ ylabel("Strain [microstrain]");
 grid on;
 grid minor;
 hold off;
-title('Strain measurement OTDR');
+title('Strain measurement OFDR');
 
 % Print differenze
 figure(3);

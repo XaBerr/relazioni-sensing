@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  5 MAR 2019 23:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  6 MAR 2019 14:08
 entering extended mode
 **./main.tex
 (main.tex
@@ -969,7 +969,17 @@ Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-) (Capitoli/primaPagina.tex) (Capitoli/cap1.tex) [1
+) (Capitoli/primaPagina.tex) (Capitoli/cap1.tex
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+
+("C:\Users\fede\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+
+("C:\Users\fede\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)) [1
 
 {C:/Users/fede/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -977,21 +987,26 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22512 strings out of 492969
- 409918 string characters out of 3127029
- 868080 words of memory out of 3000000
- 26155 multiletter control sequences out of 15000+200000
- 537274 words of font info for 31 fonts, out of 3000000 for 9000
+ 22540 strings out of 492969
+ 410484 string characters out of 3127029
+ 870080 words of memory out of 3000000
+ 26171 multiletter control sequences out of 15000+200000
+ 539575 words of font info for 41 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,6n,72p,824b,1299s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,6n,72p,1052b,1299s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
 cbx2074.pk> <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
 \dpi600\ecbx1440.pk> <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
 nappen\ec\dpi600\ecrm1440.pk> <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\
-ljfour\jknappen\ec\dpi600\ecbx1728.pk>
-Output written on main.pdf (1 page, 28618 bytes).
+ljfour\jknappen\ec\dpi600\ecbx1728.pk><C:/Users/fede/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/fede/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/fede/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Us
+ers/fede/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb>
+Output written on main.pdf (1 page, 71670 bytes).
 PDF statistics:
- 91 PDF objects out of 1000 (max. 8388607)
+ 132 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

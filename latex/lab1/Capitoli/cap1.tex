@@ -1,4 +1,11 @@
 \lvli{Introduction}
+Considerando la fibra come un'insieme di cristalli di silica e misurando il backscattering di rayleigh è possibile ottenere un'impronta digitale unica della fibra, questa impronta rimane invariata fintanto
+che la fibra non subisce perturbazioni. È quindi possibile realizzare un sensore di misura di strain o
+di temperatura confrontando il profilo di scattering a riposo con quello sotto sforzo. Immaginando di applicare uno strain alla fibra si può immaginare che questi cristalli vengano tirati e quindi l'impronta venga sfasata nell'intorno del punto di analisi. Applicando quindi la crosscorrelazione è possibile risalire alla quantità di strain misurando lo shift in frequenza tra i due segnali. è importante notare che l'analisi della crosscorrelazione è un'analisi puntuale nel senso che il confronto tra i due segnali non viene fatta prendendo come riferimento tutta la fibra ma solo una porzione. La dimensione della porzione è importante perché influenza la risoluzione spettrale e il rapporto segnale rumore della mirusa effettuata. Sebbene segnmenti lunghi migliorano l'accuracy è necessario scegliere segmenti più piccoli per evitare effentti di interferenza delle regioni non interessate. Uno shift tra i due spettri è possibile ricondurlo ad un'effetto di strain rispetto questa formula:
+$$\frac{\Delta\lambda}{\lambda} = K_T\Delta T + K_{\epsilon}\epsilon $$
+Nel nostro caso siamo interessati ad effettuare una misura di strain e a considerare la variazione in temperatura trascurabile:
+$$\frac{\Delta\lambda}{\lambda} \approx K_{\epsilon}\epsilon $$
+con $K_{\epsilon} = -0.$
 
 \lvli{Analysis}
 

@@ -85,7 +85,7 @@ end
 % Cross correlazioni
 ustrainPerFile = struct('us',[],'max',[],'variance',[],'mean',[], ...
     'spectral_shift', []);
-difference = struct('us',[],'otdr',[],'diff',[],"mean",0,'var',0);
+difference = struct('our',[],'otdr',[],'diff',[],"mean",0,'var',0);
 interpFactor = -1;
 for i = 1:filecount
 
@@ -123,10 +123,10 @@ for i = 1:filecount
     xAxis = (0 : length(ustrainPerFile(i).us) - 1) * windowStepM;
     [fitresult1, gof1] = splineFit(xAxis, ustrainPerFile(i).spectral_shift);
     [fitresult2, gof2] = splineFit(datiDevice(i).x, datiDevice(i).y);
-    difference(i).us   = feval(fitresult1, xDifference);
+    difference(i).our  = feval(fitresult1, xDifference);
     difference(i).otdr = feval(fitresult2, xDifference);
-    difference(i).diff = difference(i).us - difference(i).otdr;
-    difference(i).mean = mean(difference(i).diff) /  mean(difference(i).us); % high => systematic error
+    difference(i).diff = difference(i).our - difference(i).otdr;
+    difference(i).mean = mean(difference(i).diff) /  mean(difference(i).our); % high => systematic error
     difference(i).var  = var(difference(i).diff); % high => noise error
 end
 
@@ -177,7 +177,7 @@ for i = 1:filecount
 end
 legend;
 xlabel("Position [m]");
-ylabel("Strain [microstrain]");
+ylabel("Spectral shift [GHz]");
 grid on;
 grid minor;
 hold off;

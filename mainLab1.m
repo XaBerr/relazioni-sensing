@@ -22,8 +22,8 @@ fiberLength   = abs(signalEnd - signalStart);
 xDifference   = 0:fiberLength/1000:fiberLength;
 
 % MAIN PARAMETERS
-windowSizeM   = 0.05; % window size in meters
-windowStepM   = 0.01; % window steps in meters
+windowSizeM   = 0.00999389; % window size in meters
+windowStepM   = 0.01001341; % window steps in meters
 interpFactor  = -1;   % -1 quadratic fit, 0 nothing, >1 spline
 nPadding      = 10;   % moltiplicatore dimension
 
@@ -87,7 +87,7 @@ for i = 0 : filecount-1
     
     % Importo il file di referenza
     [x, y] = importFileOfReference(sprintf('dataLab1/%d_Lower.txt', file_index));
-    datiDevice(i+1).x = x - signalStart;
+    datiDevice(i+1).x = x - x(1);%- signalStart - 0.5;
     datiDevice(i+1).y = y;
 end
 
@@ -182,8 +182,27 @@ grid minor;
 hold off;
 title('Strain measurement OFDR');
 
-% Print differenze
+% Print micro strain del dispositivo
 figure(3);
+clf;
+hold on;
+for i = 1:filecount
+    windowCount = length(ustrainPerFile(i).us);
+    xAxis = (0 : windowCount - 1) * windowStepM; % meters
+    plot(xAxis, ustrainPerFile(i).us);
+    plot(datiDevice(i).x, (datiDevice(i).y./ k_strain) );
+end
+legend;
+xlabel("Position [m]");
+ylabel("Strain [microstrain]");
+grid on;
+grid minor;
+hold off;
+title('Strain measurement US + OFDR');
+
+
+% Print sovrapposto
+figure(4);
 clf;
 hold on;
 for i = 1:filecount

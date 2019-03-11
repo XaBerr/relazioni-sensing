@@ -146,6 +146,11 @@ for i = 1:filecount
 end
 
 
+%% mean
+for i=1:filecount
+    difference(i).mean = mean(difference(i).diff(1:1000-10)) /  mean(difference(i).our); % high => systematic error
+    difference(i).var  = var(difference(i).diff(1:1000-10)); % high => noise error
+end
 
 
 
@@ -173,7 +178,7 @@ figure(2);
 clf;
 hold on;
 for i = 1:filecount
-    plot(datiDevice(i).x -  - windowsCorrection, (datiDevice(i).y./ k_strain) );
+    plot(datiDevice(i).x - windowsCorrection, (datiDevice(i).y./ k_strain) );
 end
 legend;
 xlabel("Position [m]");
@@ -202,12 +207,12 @@ hold off;
 title('Strain measurement US + OFDR');
 
 
-% Print sovrapposto
+% Print della differenza
 figure(4);
 clf;
 hold on;
 for i = 1:filecount
-    plot(xDifference, difference(i).diff );
+    plot(xDifference, difference(i).diff,"o-");
 end
 legend;
 xlabel("Position [m]");

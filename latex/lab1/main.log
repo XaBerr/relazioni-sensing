@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  11 MAR 2019 19:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  11 MAR 2019 21:35
 entering extended mode
 **./main.tex
 (main.tex
@@ -1041,31 +1041,35 @@ Overfull \hbox (14.41547pt too wide) in paragraph at lines 122--123
 File: img/nostro.png Graphic file (type png)
 <use img/nostro.png>
 Package pdftex.def Info: img/nostro.png  used on input line 132.
-(pdftex.def)             Requested size: 298.75702pt x 151.40134pt.
-[7 <./img/nofit.jpg> <./img/final.jpg> <./img/nostro.png>]
-<img/sensitivity.png, id=49, 682.55pt x 533.995pt>
+(pdftex.def)             Requested size: 433.62335pt x 219.74765pt.
+[7 <./img/nofit.jpg> <./img/final.jpg> <./img/nostro.png (PNG copy)>]
+<img/sensitivity.png, id=48, 682.55pt x 533.995pt>
 File: img/sensitivity.png Graphic file (type png)
 <use img/sensitivity.png>
 Package pdftex.def Info: img/sensitivity.png  used on input line 146.
 (pdftex.def)             Requested size: 298.7607pt x 233.73631pt.
-<img/OFDR.png, id=50, 1445.4pt x 732.48656pt>
+ [8 <./img/sensitivity.png>]
+<img/OFDR.png, id=53, 1445.4pt x 732.48656pt>
 File: img/OFDR.png Graphic file (type png)
 <use img/OFDR.png>
-Package pdftex.def Info: img/OFDR.png  used on input line 157.
-(pdftex.def)             Requested size: 298.75702pt x 151.40134pt.
- [8 <./img/sensitivity.png>]
-<img/sovrapposizione.png, id=55, 1445.4pt x 732.48656pt>
+Package pdftex.def Info: img/OFDR.png  used on input line 159.
+(pdftex.def)             Requested size: 433.62335pt x 219.74765pt.
+<img/sovrapposizione.png, id=54, 1445.4pt x 732.48656pt>
 File: img/sovrapposizione.png Graphic file (type png)
 <use img/sovrapposizione.png>
-Package pdftex.def Info: img/sovrapposizione.png  used on input line 165.
-(pdftex.def)             Requested size: 298.75702pt x 151.40134pt.
- [9 <./img/OFDR.png> <./img/sovrapposizione.png (PNG copy)>]
-<img/diff.png, id=60, 1445.4pt x 732.48656pt>
+Package pdftex.def Info: img/sovrapposizione.png  used on input line 167.
+(pdftex.def)             Requested size: 433.62335pt x 219.74765pt.
+ [9 <./img/OFDR.png (PNG copy)> <./img/sovrapposizione.png (PNG copy)>]
+<img/diff.png, id=58, 1445.4pt x 732.48656pt>
 File: img/diff.png Graphic file (type png)
 <use img/diff.png>
-Package pdftex.def Info: img/diff.png  used on input line 181.
+Package pdftex.def Info: img/diff.png  used on input line 183.
 (pdftex.def)             Requested size: 433.62335pt x 219.74765pt.
- [10 <./img/diff.png (PNG copy)>]) [11] (main.aux)
+ [10 <./img/diff.png (PNG copy)>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [11] [12] (main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
@@ -1092,9 +1096,9 @@ fb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 ic/amsfonts/cm/cmr12.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmr7.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (11 pages, 1942463 bytes).
+Output written on main.pdf (12 pages, 1988695 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
+ 235 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

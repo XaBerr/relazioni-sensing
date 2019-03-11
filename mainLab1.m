@@ -98,7 +98,7 @@ end
 
 %%
 % Cross correlazioni
-ustrainPerFile = struct('us',[],'max',[],'variance',[],'mean',[], ...
+ustrainPerFile = struct('us',[], 'usNoPostProccess',[],'max',[],'variance',[],'mean',[], ...
     'spectral_shift', []);
 difference = struct('our',[],'otdr',[],'diff',[],"mean",0,'var',0);
 
@@ -116,10 +116,19 @@ for i = 1:filecount
         enableXgraph,...
         nPadding);
 
+    [shift_samples2, padding2] = crosscorrelation(...
+        riferimento(1).total,... % reference trace
+        dati(i).total,...
+        windowSize,...
+        windowStep, ...
+        0,...
+        1,...
+        1);
+    
     % compute time axis from z axis
     % direct computation gives values in Hertz
-    t = 2 * dati(i).meters * dati(i).info.group_indx / lightSpeed; % sec
-    dt1 = mean(diff(t));
+%     t = 2 * dati(i).meters * dati(i).info.group_indx / lightSpeed; % sec
+%     dt1 = mean(diff(t));
 
     % computing from dt given by OBR gives values in GHz
     dt = dati(i).info.dt; % nanosec.
@@ -134,6 +143,7 @@ for i = 1:filecount
 
     % estimate the applied strain from strain constant [GHz/ustrain]
     ustrainPerFile(i).us = spectral_shift ./ k_strain;
+    ustrainPerFile(i).usNoPostProccess = (1 / (dt *  padding2) * shift_samples2) ./ k_strain;
     
     %% Analisi della differenza tra i 2 grafici
     xAxis = (0 : length(ustrainPerFile(i).us) - 1) * windowStepM;
@@ -164,9 +174,10 @@ hold on;
 for i = 1:filecount
     windowCount = length(ustrainPerFile(i).us);
     xAxis = (0 : windowCount - 1) * windowStepM; % meters
+    plot(xAxis, ustrainPerFile(i).usNoPostProccess);
     plot(xAxis, ustrainPerFile(i).us);
 end
-legend;
+legend("no post process", "post process");
 xlabel("Position [m]");
 ylabel("Strain [microstrain]");
 grid on;

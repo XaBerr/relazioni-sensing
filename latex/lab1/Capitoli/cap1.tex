@@ -172,16 +172,21 @@ In conclusion, this experiment confirms that it is possible to use a distributed
 
 
 \lvli{Appendix}
-Un modo per comprendere la bontà della nostra analisi è stato confrontarla con quella effettuata automaticamente dal OBR, questa analisi è qualitativa in quanto non sappiamo con certezza i calcoli eseguiti dal dal OBR. I file che ci fornisce in output contengono, in particolare, due colonne che ci forniscono l'informazione dello shift in frequenza rispetto alla posizione. Per avere una stima indicativa di quanto differisce dal nostro si è deciso di effettuare un'analisi statistica sulla sulla differenza tra i due grafici:
+One way to understand the goodness of our analysis was to compare it with the one carried out automatically by the OBR, this analysis is qualitative because we do not know with certainty the calculations performed by the OBR. The files that supplies us in output contain, in particular, two columns that provide us with information on the frequency shift with respect to the position. To have an indicative estimate of how much it differs from ours it was decided to carry out a statistical analysis on the difference between the two graphs:
 $$g(x) = f_2(x) - f_1(x)$$
-Per effettuare la differenza punto a punto ci serviva che i due grafici avessero lo stesso campionamento, quindi è stato deciso di effettuare un'interpolzione spline su entrambi e ricampionare i due segnali con 1000 punti, il segnale risultante è mostato in Fig..
+To make the point-to-point difference we needed the two graphs to have the same sampling, so it was decided to perform a spline interpolation on both and resample the two signals with 1000 points, the resulting signal is shown in Fig. \ref{fig:difference}.
 %figura%
-L'ultima parte del segnale (circa 7 punti) presenta dei picchi introdotti da degi effetti di bordo del fitting tramite spline e quindi non vanno presi in considerazione quindi i calcoli sono stati effettuati senza prenderla in considerazione.
-Per ogni misurazione è stata calcolata la varianza del segnale differenza e la media normalizzata rispetto la media del nostro segnale e i segneunti dati sono stati riportati in tabella. Guardano i valori della media si puo derivare un'errore sistematico tra i due riferimenti come ad esempio un'eventuale shift, nel nostro caso tutti i valori sono sotto il 10\% con l'unica eccezione del segnale 14. Per quanto riguarda la varianza possiamo dedurre un'aumento del rumore del nostro segnale rispetto a quello dell'OBR con l'aumentare dell peso, la differenza non è facilmente riconducibile ad una specifica causa perché appunto non conosciamo il post processing completo dello strumento, possimo immaginare dipenda da eventuali calcoli e o parametri eseguiti in maniera differente.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{img/diff.png}
+	\caption{$g(x)$ for each signals.}\label{fig:difference}
+\end{figure}
+The last part of the signal (about 7 points) has some peaks introduced by the edge effects of the fitting using splines and therefore should not be taken into consideration therefore the calculations were made without taking it into consideration.
+For each measurement the variance of the difference signal was calculated and the normalized mean of the difference signal compared to the average of our signal; the given data have been reported in the table Tab. \ref{table:difference}. Look at the values of the average we can derive a possible systematic error between the two references, in our case all the values are low and are below 10\% with the sole exception of the signal 14. With regard to the variance we can deduce an increase of noise of our signal compared to that of the OBR with the increase of weight, the difference is not easily attributable to a specific cause because we do not know the complete post processing of the instrument, we can imagine depends on any calculations and or parameters performed differently .
 
 \begin{table}[h]
 \centering
- \begin{tabular}{c|c|c|c}
+ \begin{tabular}{c|c|c}
     measure & normalized mean & variance \\
     \hline
 		1 &    0     &  0    \\

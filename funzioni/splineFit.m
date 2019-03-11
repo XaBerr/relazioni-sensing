@@ -25,13 +25,13 @@ opts.SmoothingParam = 0.99999999;
 % Fit model to data.
 [fitresult, gof] = fit( xData, yData, ft, opts );
 
-% Plot fit with data.
-figure( 'Name', 'untitled fit 1' );
-h = plot( fitresult, xData, yData );
-legend( h, 'spectral_shift vs. xAxis', 'untitled fit 1', 'Location', 'NorthEast' );
-% Label axes
-xlabel xAxis
-ylabel spectral_shift
-grid on
+% % Plot fit with data.
+% figure( 'Name', 'untitled fit 1' );
+% h = plot( fitresult, xData, yData );
+% legend( h, 'spectral_shift vs. xAxis', 'untitled fit 1', 'Location', 'NorthEast' );
+% % Label axes
+% xlabel xAxis
+% ylabel spectral_shift
+% grid on
 
 

@@ -7,8 +7,8 @@ clearvars
 addpath('./funzioni');
 
 %######################_CONST_#######################
-startingFile  = 13; % 1
-maxFileNumber = 13; %25; % 10
+startingFile  = 1; % 1
+maxFileNumber = 25; %25; % 10
 % number of files to process (counting the reference)
 filecount = maxFileNumber - startingFile + 1;
 
@@ -22,10 +22,11 @@ fiberLength   = abs(signalEnd - signalStart);
 xDifference   = 0:fiberLength/1000:fiberLength;
 
 % MAIN PARAMETERS
-windowSizeM   = 0.00999389; % window size in meters
-windowStepM   = 0.01001341; % window steps in meters
+windowSizeM   = 0.05; % window size in meters
+windowStepM   = 0.01; % window steps in meters
 interpFactor  = -1;   % -1 quadratic fit, 0 nothing, >1 spline
 nPadding      = 10;   % moltiplicatore dimension
+windowsCorrection = windowSizeM / 2;
 
 %######################_DYNAMIC_######################
 windowSize = 0;
@@ -136,7 +137,7 @@ for i = 1:filecount
     %% Analisi della differenza tra i 2 grafici
     xAxis = (0 : length(ustrainPerFile(i).us) - 1) * windowStepM;
     [fitresult1, gof1] = splineFit(xAxis, ustrainPerFile(i).spectral_shift);
-    [fitresult2, gof2] = splineFit(datiDevice(i).x, datiDevice(i).y);
+    [fitresult2, gof2] = splineFit(datiDevice(i).x  - windowsCorrection, datiDevice(i).y);
     difference(i).our  = feval(fitresult1, xDifference);
     difference(i).otdr = feval(fitresult2, xDifference);
     difference(i).diff = difference(i).our - difference(i).otdr;
@@ -172,7 +173,7 @@ figure(2);
 clf;
 hold on;
 for i = 1:filecount
-    plot(datiDevice(i).x, (datiDevice(i).y./ k_strain) );
+    plot(datiDevice(i).x -  - windowsCorrection, (datiDevice(i).y./ k_strain) );
 end
 legend;
 xlabel("Position [m]");
@@ -182,7 +183,7 @@ grid minor;
 hold off;
 title('Strain measurement OFDR');
 
-% Print micro strain del dispositivo
+% Print sovrapposto
 figure(3);
 clf;
 hold on;
@@ -190,7 +191,7 @@ for i = 1:filecount
     windowCount = length(ustrainPerFile(i).us);
     xAxis = (0 : windowCount - 1) * windowStepM; % meters
     plot(xAxis, ustrainPerFile(i).us);
-    plot(datiDevice(i).x, (datiDevice(i).y./ k_strain) );
+    plot(datiDevice(i).x - windowsCorrection, (datiDevice(i).y./ k_strain) );
 end
 legend;
 xlabel("Position [m]");

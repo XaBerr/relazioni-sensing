@@ -7,8 +7,8 @@ clearvars
 addpath('./funzioni');
 
 %######################_CONST_#######################
-startingFile  = 1; % 1
-maxFileNumber = 25; %25; % 10
+startingFile  = 13; % 1
+maxFileNumber = 13; %25; % 10
 % number of files to process (counting the reference)
 filecount = maxFileNumber - startingFile + 1;
 
@@ -26,6 +26,7 @@ windowSizeM   = 0.05; % window size in meters
 windowStepM   = 0.01; % window steps in meters
 interpFactor  = -1;   % -1 quadratic fit, 0 nothing, >1 spline
 nPadding      = 10;   % moltiplicatore dimension
+enableXgraph  = 1;   % 1 disable, 0 enable
 windowsCorrection = windowSizeM / 2;
 
 %######################_DYNAMIC_######################
@@ -112,7 +113,7 @@ for i = 1:filecount
         windowSize,...
         windowStep, ...
         interpFactor,...
-        1,...
+        enableXgraph,...
         nPadding);
 
     % compute time axis from z axis
@@ -220,4 +221,19 @@ ylabel("Spectral shift [GHz]");
 grid on;
 grid minor;
 hold off;
-title('Strain measurement DIFF');
+title('Spectral shift DIFF');
+
+% Spectral shift
+figure(5);
+clf;
+hold on;
+for i = 1:filecount
+    plot(xDifference, difference(i).our);
+end
+legend;
+xlabel("Position [m]");
+ylabel("Spectral shift [GHz]");
+grid on;
+grid minor;
+hold off;
+title('Spectral shift');

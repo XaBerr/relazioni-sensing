@@ -67,7 +67,7 @@ function [lagDiff, padding] = crosscorrelation(reference, signal, windowSize, ..
         if flag < 1
             flag = flag + 1;
             figure;
-            plot(xValues, yValues,'.r', 'MarkerSize', 10); % stem
+            plot(xValues, yValues,"o-");%,'.r', 'MarkerSize', 10); % stem
             xlabel("Lags");
             ylabel("Cross-correlation");
         end

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  11 MAR 2019 21:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  12 MAR 2019 21:32
 entering extended mode
 **./main.tex
 (main.tex
@@ -1060,28 +1060,22 @@ File: img/sovrapposizione.png Graphic file (type png)
 Package pdftex.def Info: img/sovrapposizione.png  used on input line 167.
 (pdftex.def)             Requested size: 433.62335pt x 219.74765pt.
  [9 <./img/OFDR.png (PNG copy)> <./img/sovrapposizione.png (PNG copy)>]
-<img/diff.png, id=58, 1445.4pt x 732.48656pt>
-File: img/diff.png Graphic file (type png)
-<use img/diff.png>
-Package pdftex.def Info: img/diff.png  used on input line 183.
-(pdftex.def)             Requested size: 433.62335pt x 219.74765pt.
- [10 <./img/diff.png (PNG copy)>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [11] [12] (main.aux)
+) [10] [11] (main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22632 strings out of 492969
- 411988 string characters out of 3127029
- 875502 words of memory out of 3000000
- 26247 multiletter control sequences out of 15000+200000
+ 22626 strings out of 492969
+ 411897 string characters out of 3127029
+ 878502 words of memory out of 3000000
+ 26242 multiletter control sequences out of 15000+200000
  540262 words of font info for 42 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,10n,72p,849b,1299s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,10n,72p,824b,1299s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
 cti1440.pk> <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
 \dpi600\ecbx2074.pk> <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
@@ -1096,9 +1090,9 @@ fb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 ic/amsfonts/cm/cmr12.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmr7.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (12 pages, 1988695 bytes).
+Output written on main.pdf (11 pages, 1904295 bytes).
 PDF statistics:
- 235 PDF objects out of 1000 (max. 8388607)
+ 230 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

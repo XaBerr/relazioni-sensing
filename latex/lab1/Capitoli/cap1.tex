@@ -174,50 +174,43 @@ In conclusion, this experiment confirms that it is possible to use a distributed
 
 
 \lvli{Appendix}
-One way to understand the goodness of our analysis was to compare it with the one carried out automatically by the OBR, this analysis is qualitative because we do not know with certainty the calculations performed by the OBR. The files that supplies us in output contain, in particular, two columns that provide us with information on the frequency shift with respect to the position. To have an indicative estimate of how much it differs from ours it was decided to carry out a statistical analysis on the difference between the two graphs:
-$$g(x) = f_2(x) - f_1(x)$$
-To make the point-to-point difference we needed the two graphs to have the same sampling, so it was decided to perform a spline interpolation on both and resample the two signals with 1000 points, the resulting signal is shown in Fig. \ref{fig:difference}.
-%figura%
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.3]{img/diff.png}
-	\caption{$g(x)$ for each signals.}\label{fig:difference}
-\end{figure}
-The last part of the signal (about 7 points) has some peaks introduced by the edge effects of the fitting using splines and therefore should not be taken into consideration therefore the calculations were made without taking it into consideration.
-For each measurement the variance of the difference signal was calculated and the normalized mean of the difference signal compared to the average of our signal; the given data have been reported in the table Tab. \ref{table:difference}. Look at the values of the average we can derive a possible systematic error between the two references, in our case all the values are low and are below 10\% with the sole exception of the signal 14. With regard to the variance we can deduce an increase of noise of our signal compared to that of the OBR with the increase of weight, the difference is not easily attributable to a specific cause because we do not know the complete post processing of the instrument, we can imagine depends on any calculations and or parameters performed differently .
+Partendo dagli stessi dati la nostra analisi e quella eseguita in automatico dallo strumento risultano differenti a causa del differente approccio utilizzato per il post processing.
+Per quantizzare quant'è questa differenza è stato deciso di calcolare la distanza tra la funzione di spectal shift nostra e quella dello strumento, definita come:
+$$d(x) = |f_2(x) - f_1(x)|$$
+To accomplish the point-to-point difference we needed the two graphs to have the same sampling, so it was decided to perform a spline interpolation on both in order to make a 1000 points sampling on both the signals. The resulting signal is shown in Fig.1 mentre nel grafico Fig.2 è mostrato il nostro spectral shift. The last part of the signal in Fig.1 (about 7 points) presents some peaks introduced by the edge effects of the spline interpolation, therefore it has not be considered.
+A prima imperessione vedendo un' pattern simile al grafico si è pensato ad uno shift tra i due segnale e quindi si è investigato calcolando al xcorrelation tra i due segnali che ha riporto uno valore di shift nullo. A questo punto, per poter quantizzare quant'è la differenza è stato scelto di calcolare la media e il valore massimo di $d(x)$, questi valori ottenuti sono dei riferimenti numerici per confrontare quant'è il discostamento delle due analisi e sono riportati in Tab.1. Dai dati ottenuti si nota che i valori di media sono bassi e che i valori di massimo discostamento fanno quindi riferimento a dei picchi isolati.
 
 \begin{table}[h]
 \centering
- \begin{tabular}{c|c|c}
-    measure & normalized mean & variance \\
+ \begin{tabular}{c|c|c|c}
+    measure & mean & max & number of shift samples\\
     \hline
-		1 &    0     &  0    \\
-		2 &    0.02  &  0.07 \\
-		3 &    0.04  &  0.25 \\
-		4 &    0.05  &  0.60 \\
-		5 &    0.07  &  1.19 \\
-		6 &    0.05  &  1.76 \\
-		7 &    0.03  &  2.50 \\
-		8 &    0.02  &  3.03 \\
-		9 &    0.07  &  4.75 \\
-		10 &   0.01  &  7.23 \\
-		11 &   0.01  &  7.53 \\
-		12 &   0.08  & 11.35 \\
-		13 &   0.07  & 16.42 \\
-		% \hline
-		14 &   0.10  & 11.52 \\
-		15 &   0.01  &  7.54 \\
-		16 &   0.00  &  7.50 \\
-		17 &   0.03  &  5.53 \\
-		18 &   0.01  &  3.15 \\
-		19 &   0.02  &  2.64 \\
-		20 &   0.02  &  1.89 \\
-		21 &   0.01  &  1.17 \\
-		22 &   0.01  &  0.71 \\
-		23 &  -0.00  &  0.36 \\
-		24 &  -0.01  &  0.10 \\
-		25 &   0.03  &  0.01 \\
+		1 &  0    & 0     & 0 \\
+	  2 &  0.17 &  1.4  & 0 \\
+	  3 &  0.29 &  4.2  & 0 \\
+	  4 &  0.40 &  6.2  & 0 \\
+	  5 &  0.54 &  8.4  & 0 \\
+	  6 &  0.66 & 11.1  & 0 \\
+	  7 &  0.77 & 13.9  & 0 \\
+	  8 &  0.88 & 13.1  & 0 \\
+	  9 &  1.03 & 18.5  & 0 \\
+	 10 &  1.22 & 20.2  & 0 \\
+	 11 &  1.31 & 22.6  & 0 \\
+	 12 &  1.55 & 25.9  & 0 \\
+	 13 &  1.83 & 28.9  & 0 \\
+	 14 &  1.56 & 26.1  & 0 \\
+	 15 &  1.29 & 22.9  & 0 \\
+	 16 &  1.24 & 20.8  & 0 \\
+	 17 &  1.08 & 18.8  & 0 \\
+	 18 &  0.89 & 13.2  & 0 \\
+	 19 &  0.79 & 14.4  & 0 \\
+	 20 &  0.68 & 12.1  & 0 \\
+	 21 &  0.54 &  9.8  & 0 \\
+	 22 &  0.44 &  6.6  & 0 \\
+	 23 &  0.32 &  5.2  & 0 \\
+	 24 &  0.20 &  1.9  & 0 \\
+	 25 &  0.11 &  0.5  & 0 \\
  \end{tabular}
-\caption{Statistical comparison between our data and the OBR data.}
+\caption{Statistical comparison between our analysis and the OBR analysis.}
  \label{table:difference}
 \end{table}

@@ -7,8 +7,8 @@ clearvars
 addpath('./funzioni');
 
 %######################_CONST_#######################
-startingFile  = 13; % 1
-maxFileNumber = 13; %25; % 10
+startingFile  = 1; % 1
+maxFileNumber = 25; %25; % 10
 % number of files to process (counting the reference)
 filecount = maxFileNumber - startingFile + 1;
 
@@ -100,7 +100,7 @@ end
 % Cross correlazioni
 ustrainPerFile = struct('us',[], 'usNoPostProccess',[],'max',[],'variance',[],'mean',[], ...
     'spectral_shift', []);
-difference = struct('our',[],'otdr',[],'diff',[],"mean",0,'var',0);
+difference = struct('our',[],'otdr',[],'diff',[],"mean",0,'var',0,'max',0,'xcorr',0);
 
 for i = 1:filecount
 
@@ -116,14 +116,14 @@ for i = 1:filecount
         enableXgraph,...
         nPadding);
 
-    [shift_samples2, padding2] = crosscorrelation(...
-        riferimento(1).total,... % reference trace
-        dati(i).total,...
-        windowSize,...
-        windowStep, ...
-        0,...
-        1,...
-        1);
+%     [shift_samples2, padding2] = crosscorrelation(...
+%         riferimento(1).total,... % reference trace
+%         dati(i).total,...
+%         windowSize,...
+%         windowStep, ...
+%         0,...
+%         1,...
+%         1);
     
     % compute time axis from z axis
     % direct computation gives values in Hertz
@@ -143,7 +143,7 @@ for i = 1:filecount
 
     % estimate the applied strain from strain constant [GHz/ustrain]
     ustrainPerFile(i).us = spectral_shift ./ k_strain;
-    ustrainPerFile(i).usNoPostProccess = (1 / (dt *  padding2) * shift_samples2) ./ k_strain;
+%     ustrainPerFile(i).usNoPostProccess = (1 / (dt *  padding2) * shift_samples2) ./ k_strain;
     
     %% Analisi della differenza tra i 2 grafici
     xAxis = (0 : length(ustrainPerFile(i).us) - 1) * windowStepM;
@@ -159,8 +159,14 @@ end
 
 %% mean
 for i=1:filecount
-    difference(i).mean = mean(difference(i).diff(1:1000-10)) /  mean(difference(i).our); % high => systematic error
-    difference(i).var  = var(difference(i).diff(1:1000-10)); % high => noise error
+    s1 = abs(difference(i).diff(1:1000-10));
+    s2 = abs(difference(i).diff(1:1000-10));
+    difference(i).mean = mean(s1);
+    difference(i).max  = max(s2);
+    [yValues, xValues] = xcorr(s1, s2);
+    [~, idx] = max(yValues);
+    xValue = xValues(idx);
+    difference(i).xcorr  = xValue;
 end
 
 
@@ -174,7 +180,7 @@ hold on;
 for i = 1:filecount
     windowCount = length(ustrainPerFile(i).us);
     xAxis = (0 : windowCount - 1) * windowStepM; % meters
-    plot(xAxis, ustrainPerFile(i).usNoPostProccess);
+%     plot(xAxis, ustrainPerFile(i).usNoPostProccess);
     plot(xAxis, ustrainPerFile(i).us);
 end
 legend("no post process", "post process");
@@ -183,7 +189,7 @@ ylabel("Strain [microstrain]");
 grid on;
 grid minor;
 hold off;
-title('Strain measurement US');
+title('Strain measurement OUR');
 
 % Print micro strain del dispositivo
 figure(2);
@@ -216,7 +222,7 @@ ylabel("Strain [microstrain]");
 grid on;
 grid minor;
 hold off;
-title('Strain measurement US + OFDR');
+title('Strain measurement OUR + OFDR');
 
 
 % Print della differenza
@@ -224,7 +230,7 @@ figure(4);
 clf;
 hold on;
 for i = 1:filecount
-    plot(xDifference, difference(i).diff,"o-");
+    plot(xDifference, abs(difference(i).diff));
 end
 legend;
 xlabel("Position [m]");
@@ -247,4 +253,20 @@ ylabel("Spectral shift [GHz]");
 grid on;
 grid minor;
 hold off;
-title('Spectral shift');
+title('Spectral shift OUR');
+
+% Spectral shift
+figure(6);
+clf;
+hold on;
+for i = 1:filecount
+    plot(xDifference, difference(i).otdr);
+    plot(xDifference, difference(i).our);
+end
+legend;
+xlabel("Position [m]");
+ylabel("Spectral shift [GHz]");
+grid on;
+grid minor;
+hold off;
+title('Spectral shift OUR + OFDR');

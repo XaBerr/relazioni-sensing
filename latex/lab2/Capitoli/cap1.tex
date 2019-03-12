@@ -57,7 +57,7 @@ First of all, the 13 files were imported. They contain the data related to the s
 \end{figure}
 
 At this point, for each file, the value of the wavelength corresponding to the maximum point is searched. To improve the analysis an interpolation of the points is performed through a quadratic function. A key point was to choose which points to consider in the approximation.
-The selection of the points was made by choosing all the points that are above 90\% of the peak as we can see from the figure (Fig.\ref{fig:peak}), checking to have at least 4 points of analysis that correspond to one point more than degrees of freedom (3).
+The selection of the points was made by choosing all the points that are above 90\% of the peak as we can see from the figure (Fig.\ref{fig:peak}), checking to have at least 4 points of analysis that correspond to one point more than the degrees of freedom (3).
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.7]{img/peak.jpg}
@@ -65,7 +65,7 @@ The selection of the points was made by choosing all the points that are above 9
     \label{fig:peak}
 \end{figure}
 
-We then calculated the elongation values by setting our value of $14 [mm]$ as 0, thus obtaining a maximum elongation value of $0.75 [mm]$. At this point we calculated the strain by dividing these values by the rest length of the fiber $L = 310.5 [mm]$ which we subsequently correlated with the previously measured peaks as shown in the graph (Fig.\ref{fig:spins}).
+We then calculated the elongation values by setting $14 [mm]$ as 0, thus obtaining a maximum elongation of $0.75 [mm]$. At this point we calculated the strain by dividing these values by the remaining length of the fiber $L = 310.5 [mm]$. The resulting strain  was hence correlated with the previously measured peaks as shown in the graph (Fig.\ref{fig:spins}).
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.7]{img/spins.jpg}
@@ -79,12 +79,12 @@ $$a = \frac{\Delta \lambda}{ \Delta strain} = 1.114 \left[\frac{pm}{\mu\epsilon}
 which corresponds to our value of sensitivity:
 $$s = a = 1.1 \left[\frac{pm}{\mu\epsilon}\right]$$
 
-To estimate the uncertainty provided by the sensor we can exploit the deviation that the points have in the y-axis from the function with which we have made the fit $rmse = 1.68\cdot10^{-5} [\mu m]$. Applying the correction where $M = 2$ are the points of freedom and $N = 13$ are the points taken $q = \frac{rmse}{\sqrt{N - M}} [\mu m]$ and inverting the relationship with the angular coefficient we obtain:
+To estimate the uncertainty provided by the sensor we can exploit the deviation that the points have in the y-axis from the function used to make we have made the fit $rmse = 1.68\cdot10^{-5} [\mu m]$. Applying a correction where $M = 2$ are the points of freedom and $N = 13$ are the points taken $q = \frac{rmse}{\sqrt{N - M}} [\mu m]$ and inverting the relationship with the angular coefficient we obtain:
 $$e = \frac{q \cdot 10^{6} [pm]}{a \left[\frac{pm}{\mu\epsilon}\right]} = 5 [\mu\epsilon]$$
 
 \newpage
 \lvli{Conclusion}
-The performance of the data collected was excellent because they produced a linear trend as we expected with a deviation of $rmse = 1.6 \cdot 10^{-5}[\mu m]$.
+The data collected was excellent because they produced a linear trend as we expected with a deviation of $rmse = 1.6 \cdot 10^{-5}[\mu m]$.
 
 The uncertainty $e = 5 [\mu\epsilon]$ is slightly higher than the typical value of $1 [\mu\epsilon]$ compared to the usual sensors, but we can not make more precise evaluations because we do not have the specific data of that sensor.
 

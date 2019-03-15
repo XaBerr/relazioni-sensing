@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  12 MAR 2019 21:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2018.11.13)  15 MAR 2019 20:33
 entering extended mode
 **./main.tex
 (main.tex
@@ -985,6 +985,11 @@ File: img/setup.png Graphic file (type png)
 Package pdftex.def Info: img/setup.png  used on input line 12.
 (pdftex.def)             Requested size: 298.76712pt x 149.66809pt.
 
+Underfull \hbox (badness 2818) in paragraph at lines 13--13
+[]\T1/cmr/m/n/14.4 Figura 1: A com-mer-cial OF-DR (Lu-na OBR 4600) mea-su-res t
+he
+ []
+
 [1
 
 {C:/Users/fede/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <./img/se
@@ -992,90 +997,85 @@ tup.png>]
 <img/raw.png, id=19, 704.6325pt x 563.10374pt>
 File: img/raw.png Graphic file (type png)
 <use img/raw.png>
-Package pdftex.def Info: img/raw.png  used on input line 58.
+Package pdftex.def Info: img/raw.png  used on input line 59.
 (pdftex.def)             Requested size: 298.74986pt x 238.74454pt.
- [3] [4 <./img/raw.png>]
-<img/xcross.jpg, id=30, 963.6pt x 487.8225pt>
+ [3]
+<img/xcross.jpg, id=23, 963.6pt x 487.8225pt>
 File: img/xcross.jpg Graphic file (type jpg)
 <use img/xcross.jpg>
-Package pdftex.def Info: img/xcross.jpg  used on input line 80.
+Package pdftex.def Info: img/xcross.jpg  used on input line 75.
 (pdftex.def)             Requested size: 298.74232pt x 151.2383pt.
-<img/xcross-mean.jpg, id=31, 963.6pt x 487.8225pt>
+ [4 <./img/raw.png>]
+<img/xcross-mean.jpg, id=29, 963.6pt x 487.8225pt>
 File: img/xcross-mean.jpg Graphic file (type jpg)
 <use img/xcross-mean.jpg>
-Package pdftex.def Info: img/xcross-mean.jpg  used on input line 86.
+Package pdftex.def Info: img/xcross-mean.jpg  used on input line 81.
 (pdftex.def)             Requested size: 298.74232pt x 151.2383pt.
-<img/3points.png, id=32, 1445.4pt x 732.48656pt>
+<img/3points.png, id=30, 1445.4pt x 732.48656pt>
 File: img/3points.png Graphic file (type png)
 <use img/3points.png>
-Package pdftex.def Info: img/3points.png  used on input line 92.
+Package pdftex.def Info: img/3points.png  used on input line 87.
 (pdftex.def)             Requested size: 298.75702pt x 151.40134pt.
  [5 <./img/xcross.jpg> <./img/xcross-mean.jpg>]
-<img/padding10.png, id=37, 1445.4pt x 732.48656pt>
+<img/padding10.png, id=34, 1445.4pt x 732.48656pt>
 File: img/padding10.png Graphic file (type png)
 <use img/padding10.png>
-Package pdftex.def Info: img/padding10.png  used on input line 100.
+Package pdftex.def Info: img/padding10.png  used on input line 95.
 (pdftex.def)             Requested size: 298.75702pt x 151.40134pt.
  [6 <./img/3points.png (PNG copy)> <./img/padding10.png (PNG copy)>]
-<img/nofit.jpg, id=41, 963.6pt x 536.0025pt>
-File: img/nofit.jpg Graphic file (type jpg)
-<use img/nofit.jpg>
-Package pdftex.def Info: img/nofit.jpg  used on input line 116.
-(pdftex.def)             Requested size: 240.89941pt x 134.00029pt.
-
-Overfull \hbox (14.41547pt too wide) in paragraph at lines 116--117
- [][] 
- []
-
-<img/final.jpg, id=42, 963.6pt x 536.0025pt>
-File: img/final.jpg Graphic file (type jpg)
-<use img/final.jpg>
-Package pdftex.def Info: img/final.jpg  used on input line 122.
-(pdftex.def)             Requested size: 240.89941pt x 134.00029pt.
-
-Overfull \hbox (14.41547pt too wide) in paragraph at lines 122--123
- [][] 
- []
-
-<img/nostro.png, id=43, 1445.4pt x 732.48656pt>
+<img/ok.jpg, id=39, 963.6pt x 487.8225pt>
+File: img/ok.jpg Graphic file (type jpg)
+<use img/ok.jpg>
+Package pdftex.def Info: img/ok.jpg  used on input line 109.
+(pdftex.def)             Requested size: 298.74232pt x 151.2383pt.
+<img/nostro.png, id=40, 1445.4pt x 732.48656pt>
 File: img/nostro.png Graphic file (type png)
 <use img/nostro.png>
-Package pdftex.def Info: img/nostro.png  used on input line 132.
-(pdftex.def)             Requested size: 433.62335pt x 219.74765pt.
-[7 <./img/nofit.jpg> <./img/final.jpg> <./img/nostro.png (PNG copy)>]
-<img/sensitivity.png, id=48, 682.55pt x 533.995pt>
+Package pdftex.def Info: img/nostro.png  used on input line 116.
+(pdftex.def)             Requested size: 298.75702pt x 151.40134pt.
+
+[7 <./img/ok.jpg> <./img/nostro.png (PNG copy)>]
+<img/sensitivity.png, id=45, 682.55pt x 533.995pt>
 File: img/sensitivity.png Graphic file (type png)
 <use img/sensitivity.png>
-Package pdftex.def Info: img/sensitivity.png  used on input line 146.
+Package pdftex.def Info: img/sensitivity.png  used on input line 130.
 (pdftex.def)             Requested size: 298.7607pt x 233.73631pt.
- [8 <./img/sensitivity.png>]
-<img/OFDR.png, id=53, 1445.4pt x 732.48656pt>
+<img/OFDR.png, id=46, 1445.4pt x 732.48656pt>
 File: img/OFDR.png Graphic file (type png)
 <use img/OFDR.png>
-Package pdftex.def Info: img/OFDR.png  used on input line 159.
-(pdftex.def)             Requested size: 433.62335pt x 219.74765pt.
-<img/sovrapposizione.png, id=54, 1445.4pt x 732.48656pt>
+Package pdftex.def Info: img/OFDR.png  used on input line 141.
+(pdftex.def)             Requested size: 298.75702pt x 151.40134pt.
+ [8 <./img/sensitivity.png>]
+<img/sovrapposizione.png, id=51, 1445.4pt x 732.48656pt>
 File: img/sovrapposizione.png Graphic file (type png)
 <use img/sovrapposizione.png>
-Package pdftex.def Info: img/sovrapposizione.png  used on input line 167.
-(pdftex.def)             Requested size: 433.62335pt x 219.74765pt.
- [9 <./img/OFDR.png (PNG copy)> <./img/sovrapposizione.png (PNG copy)>]
+Package pdftex.def Info: img/sovrapposizione.png  used on input line 148.
+(pdftex.def)             Requested size: 298.75702pt x 151.40134pt.
+<img/spectralshift.jpg, id=52, 963.6pt x 487.8225pt>
+File: img/spectralshift.jpg Graphic file (type jpg)
+<use img/spectralshift.jpg>
+Package pdftex.def Info: img/spectralshift.jpg  used on input line 162.
+(pdftex.def)             Requested size: 298.74232pt x 151.2383pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [10] [11] (main.aux)
+[9 <./img/OFDR.png (PNG copy)> <./img/sovrapposizione.png (PNG copy)>]
+<img/diffok.jpg, id=56, 963.6pt x 487.8225pt>
+File: img/diffok.jpg Graphic file (type jpg)
+<use img/diffok.jpg>
+Package pdftex.def Info: img/diffok.jpg  used on input line 169.
+(pdftex.def)             Requested size: 289.08223pt x 146.34787pt.
+ [10 <./img/spectralshift.jpg> <./img/diffok.jpg>]) [11] (main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22626 strings out of 492969
- 411897 string characters out of 3127029
- 878502 words of memory out of 3000000
- 26242 multiletter control sequences out of 15000+200000
+ 22632 strings out of 492969
+ 412028 string characters out of 3127029
+ 876502 words of memory out of 3000000
+ 26247 multiletter control sequences out of 15000+200000
  540262 words of font info for 42 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,10n,72p,824b,1299s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,10n,72p,997b,1299s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
 cti1440.pk> <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
 \dpi600\ecbx2074.pk> <C:\Users\fede\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
@@ -1084,15 +1084,13 @@ ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\fede\AppData\Local\MiKTeX\2.9\
 fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk><C:/Users/fede/AppData/Local/Pro
 grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/fede/AppDa
 ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/User
-s/fede/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.p
+s/fede/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
 fb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr10.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (11 pages, 1904295 bytes).
+/cm/cmr12.pfb><C:/Users/fede/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (11 pages, 1881488 bytes).
 PDF statistics:
- 230 PDF objects out of 1000 (max. 8388607)
+ 222 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
